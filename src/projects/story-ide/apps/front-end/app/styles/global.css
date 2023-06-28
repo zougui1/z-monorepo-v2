@@ -1,0 +1,27 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #5556;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa8;
+}
+
+.\!hover\:invisible-children\:visible:hover .\!invisible {
+  visibility: visible !important;
+}

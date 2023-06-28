@@ -1,0 +1,19 @@
+import * as React from "react";
+import { SVGProps } from "react";
+const SvgDefaultFolder = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 32 32"
+    width="1em"
+    height="1em"
+    {...props}
+  >
+    <path
+      d="M27.5 5.5h-9.3l-2.1 4.2H4.4v16.8h25.2v-21Zm0 4.2h-8.2l1.1-2.1h7.1Z"
+      style={{
+        fill: "#c09553",
+      }}
+    />
+  </svg>
+);
+export default SvgDefaultFolder;

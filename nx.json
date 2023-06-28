@@ -1,0 +1,71 @@
+{
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": [
+          "compile",
+          "build",
+          "test",
+          "test:coverage"
+        ]
+      }
+    }
+  },
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/src/**/*.ts",
+      "{projectRoot}/src/**/*.tsx",
+      "{projectRoot}/tsconfig.*"
+    ],
+    "prod": [
+      "!{projectRoot}/src/**/*.spec.*",
+      "!{projectRoot}/jest.config.*",
+      "!{projectRoot}/lib",
+      "!{projectRoot}/coverage",
+      "!{projectRoot}/tsconfig.tsbuildinfo"
+    ],
+    "test": [
+      "{projectRoot}/src/**/*.spec.*",
+      "{projectRoot}/jest.config.*"
+    ]
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": ["default", "^prod"],
+      "outputs": [
+        "{projectRoot}/lib"
+      ]
+    },
+    "compile": {
+      "dependsOn": [
+        "^compile"
+      ],
+      "inputs": ["default", "^prod"],
+      "outputs": [
+        "{projectRoot}/lib",
+        "{projectRoot}/tsconfig.tsbuildinfo"
+      ]
+    },
+    "test": {
+      "inputs": [
+        "default",
+        "test",
+        "^prod"
+      ]
+    },
+    "test:coverage": {
+      "inputs": [
+        "default",
+        "test",
+        "^prod"
+      ],
+      "outputs": [
+        "{projectRoot}/coverage"
+      ]
+    }
+  }
+}

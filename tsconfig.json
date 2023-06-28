@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "commonjs",
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "preserveConstEnums": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "lib": ["esnext"],
+    "types": ["jest", "node"],
+    "rootDir": "src",
+    "target": "ESNext"
+  },
+  "include": [
+    "src/packages/*/src/**/*.ts",
+    "src/projects/*/*/*/src/**/*.ts"
+  ],
+  "exclude": [
+    "src/packages/*/src/**/*.spec.*",
+    "src/projects/*/*/*/src/**/*.spec.*"
+  ]
+}

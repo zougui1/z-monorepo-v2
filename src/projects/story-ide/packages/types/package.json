@@ -1,0 +1,29 @@
+{
+  "name": "@zougui/story-ide.types",
+  "version": "0.7.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "start": "nodemon lib",
+    "compile": "tsc --project .",
+    "compile:watch": "npm run compile -- --watch",
+    "clean": "rimraf ./lib & rimraf tsconfig.tsbuildinfo",
+    "build": "npm run clean && npm run compile",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "rimraf": "^4.1.2",
+    "typescript": "^4.9.5"
+  },
+  "keywords": [
+    "type",
+    "typescript"
+  ],
+  "author": "Zougui",
+  "license": "ISC",
+  "dependencies": {
+    "zod": "^3.21.4"
+  }
+}

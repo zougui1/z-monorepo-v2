@@ -1,0 +1,5 @@
+- refactor the file processing
+  - metadata retrieving
+  - sample creation
+- check out how links are handled in e621's post descriptions and come up with a normalized way to handled them along with links in FA's post descriptions
+- integrate elasticsearch to find similar file hashes

@@ -1,0 +1,85 @@
+{
+  "name": "@zougui/story-ide.front-end",
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:svg dev:css dev:remix",
+    "dev:css": "npm run generate:css -- --watch",
+    "dev:remix": "remix dev",
+    "dev:svg": "npm-run-all icons icons:watch",
+    "icons": "svgr --out-dir app/icons --typescript --icon -- ./assets/icons",
+    "icons:watch": "npm-watch icons",
+    "build": "npm-run-all build:svg build:css build:remix",
+    "build:css": "npm run generate:css -- --minify",
+    "build:svg": "npm run icons",
+    "build:remix": "remix build",
+    "generate:css": "tailwindcss -o ./app/styles/tailwind.css",
+    "start": "remix-serve build",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@hookform/resolvers": "^3.1.0",
+    "@monaco-editor/react": "^4.5.1",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.2",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@remix-run/css-bundle": "^1.15.0",
+    "@remix-run/node": "^1.15.0",
+    "@remix-run/react": "^1.15.0",
+    "@remix-run/serve": "^1.15.0",
+    "@zougui/common.math-utils": "^0.4.0",
+    "@zougui/common.string-utils": "^0.2.1",
+    "@zougui/story-ide.electron-api": "^0.6.0",
+    "axios": "^1.4.0",
+    "clsx": "^1.2.1",
+    "idb-keyval": "5",
+    "immer": "^10.0.1",
+    "isbot": "^3.6.8",
+    "monaco-editor": "^0.38.0",
+    "nanoid": "^3.3.6",
+    "radash": "^10.8.1",
+    "react": "^18.2.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.9",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.1",
+    "shortcuts": "^2.0.3",
+    "tailwindcss": "^3.3.2",
+    "url-join": "^4.0.1",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.15.0",
+    "@remix-run/eslint-config": "^1.15.0",
+    "@svgr/cli": "^7.0.0",
+    "@svgr/plugin-jsx": "^7.0.0",
+    "@svgr/plugin-prettier": "^7.0.0",
+    "@svgr/plugin-svgo": "^7.0.0",
+    "@types/react": "^18.0.35",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-native": "^0.71.6",
+    "@zougui/story-ide.types": "^0.7.0",
+    "binode": "^1.0.5",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.38.0",
+    "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.11.0",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "watch": {
+    "icons": {
+      "patterns": [
+        "icons"
+      ],
+      "extensions": "svg",
+      "quiet": false
+    }
+  }
+}
