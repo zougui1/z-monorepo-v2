@@ -1,0 +1,23 @@
+[
+  {
+    "name": "fap",
+    "type": 1,
+    "description": "Fap command",
+    "options": [
+      {
+        "name": "start",
+        "description": "Start fapping",
+        "type": 1,
+        "options": [
+          {
+            "name": "content",
+            "description": "type of content",
+            "type": 3,
+            "required": false,
+            "autocomplete": true
+          }
+        ]
+      }
+    ]
+  }
+]
