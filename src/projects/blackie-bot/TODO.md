@@ -1,1 +1,5 @@
+- refactor the socket code
+- add NODE_ENV environment variable
+- determine whether the socket is server or client based on NODE_ENV
+- create a systemd service on the server
 - add all the commands existing from the previous bot

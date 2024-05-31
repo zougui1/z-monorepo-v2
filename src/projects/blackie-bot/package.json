@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "start": "MODE=server DEBUG=@zougui:* nodemon lib",
-    "start:client": "MODE=client DEBUG=@zougui:* nodemon lib",
+    "start": "DEBUG=@zougui:* nodemon lib",
+    "start:prod": "NODE_ENV=production DEBUG=@zougui:* nodemon lib",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --collectCoverage",

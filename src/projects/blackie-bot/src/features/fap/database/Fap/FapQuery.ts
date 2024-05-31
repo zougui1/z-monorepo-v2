@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 import { Fap } from './Fap';
-import { FapContentType } from '../../../FapContentType';
+import { FapContentType } from '../../FapContentType';
 
 export class FapQuery {
   readonly #model: Fap.Model;

@@ -1,82 +1,11 @@
 import { GatewayIntentBits } from 'discord.js';
-import { Server, Socket } from 'socket.io';
-import { io } from 'socket.io-client';
-import Emittery from 'emittery';
 
 import { Client } from './discord';
 import { fap, clear } from './features';
 import { authorizer } from './middlewares';
 import { env } from './env';
 import { config } from './config';
-
-export interface ServerSocketEventMap {
-  connectionChange: { connectedClients: number };
-}
-
-class ServerSocket extends Emittery<ServerSocketEventMap> {
-  readonly io = new Server();
-  #sockets = new Set<Socket>();
-  #connectionChanged = false;
-
-  constructor() {
-    super();
-
-    this.io.listen(config.production.socket.port);
-
-    this.io.on('connection', socket => {
-      this.#connectionChanged = true;
-      this.#sockets.add(socket);
-      this._emitConnectionChange();
-
-      socket.on('disconnect', () => {
-        this.#sockets.delete(socket);
-        this._emitConnectionChange();
-      });
-    });
-
-    // wait 5 seconds before emitting a fake connection change
-    // for the initial initialization, only if it hasn't been emitted yet
-    setTimeout(() => {
-      if (!this.#connectionChanged) {
-        this._emitConnectionChange();
-      }
-    }, 5000);
-  }
-
-  private _emitConnectionChange = (): void => {
-    this.emit('connectionChange', {
-      connectedClients: this.#sockets.size,
-    });
-  }
-}
-
-class ClientSocket {
-  readonly socket = io(`${config.production.socket.domain}:${config.production.socket.port}`);
-
-  waitStatus = async (): Promise<{ isRunning: boolean }> => {
-    return new Promise(resolve => {
-      const handleConnect = () => {
-        cleanup();
-        resolve({ isRunning: true });
-      }
-
-      const handleDisconnect = () => {
-        cleanup();
-        resolve({ isRunning: false });
-      }
-
-      const cleanup = () => {
-        this.socket.off('connect', handleConnect);
-        this.socket.off('connect_error', handleDisconnect);
-        this.socket.off('disconnect', handleDisconnect);
-      }
-
-      this.socket.once('connect', handleConnect);
-      this.socket.once('connect_error', handleDisconnect);
-      this.socket.once('disconnect', handleDisconnect);
-    });
-  }
-}
+import { ServerSocket, ClientSocket } from './socket';
 
 const startBot = async (): Promise<Client> => {
   console.log('starting up bot...');
@@ -123,36 +52,41 @@ const startBot = async (): Promise<Client> => {
   return discord;
 }
 
-export const program = async (): Promise<void> => {
-  if (env.mode === 'server') {
-    const server = new ServerSocket();
-    let discord: Client | undefined;
+const serverProgram = async (): Promise<void> => {
+  const server = new ServerSocket(config.production.socket);
+  let discord: Client | undefined;
 
-    server.on('connectionChange', async ({ connectedClients }) => {
-      if (connectedClients) {
-        await discord?.destroy();
-        console.log('server: bot stopped');
-        server.io.emit('bot-stopped');
-        return;
-      }
-
-      discord = await startBot();
-      console.log('server: start bot');
-    });
-  } else {
-    const client = new ClientSocket();
-    const botStoppedPromise = new Promise(resolve => client.socket.once('bot-stopped', resolve));
-    const status = await client.waitStatus();
-
-    console.log('client: status:', status.isRunning);
-
-    if (status.isRunning) {
-      console.log('client: wait for server to stop the bot');
-      await botStoppedPromise;
+  server.on('connectionChange', async ({ connectedClients }) => {
+    if (connectedClients) {
+      console.log('client connected. stopping bot...');
+      await discord?.destroy();
+      console.log('bot stopped');
+      server.io.emit('bot-stopped');
+      return;
     }
 
-    console.log('client: start bot');
-    await startBot();
+    console.log('client disconnected');
+    discord = await startBot();
+  });
+}
+
+const clientProgram = async (): Promise<void> => {
+  const client = new ClientSocket(config.production.socket);
+  const botStoppedPromise = new Promise(resolve => client.socket.once('bot-stopped', resolve));
+  const status = await client.waitStatus();
+
+  if (status.isRunning) {
+    console.log('waiting for server to stop the bot...');
+    await botStoppedPromise;
   }
 
+  await startBot();
+}
+
+export const program = async (): Promise<void> => {
+  if (env.nodeEnv === 'production') {
+    await serverProgram();
+  } else {
+    await clientProgram();
+  }
 }

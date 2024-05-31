@@ -1,8 +1,8 @@
 import { prop, getModelForClass } from '@typegoose/typegoose';
 import type { DateTime } from 'luxon';
 
-import { FapContentType } from '../../../FapContentType';
-import { connections, type TypegooseDocument } from '../../../../../database';
+import { FapContentType } from '../../FapContentType';
+import { connections, type TypegooseDocument } from '../../../../database';
 
 export class Fap {
   @prop({ enum: FapContentType, type: String, required: true })
