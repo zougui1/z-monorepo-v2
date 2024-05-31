@@ -101,7 +101,7 @@ const startBot = async (): Promise<Client> => {
   });
 
   discord.use(authorizer({
-    authorizedUserIds: config.discord.authorizedUserIds,
+    authorizedUserIds: config.production.discord.authorizedUserIds,
   }));
 
   discord.addCommand(fap);
@@ -112,8 +112,8 @@ const startBot = async (): Promise<Client> => {
 
   const guildList = await discord.client.guilds.fetch();
   const channelIds = [
-    ...config.discord.production.channelIds,
-    ...config.discord.test.channelIds,
+    ...config.production.discord.channelIds,
+    ...config.development.discord.channelIds,
   ];
 
   for (const guildItem of guildList.values()) {

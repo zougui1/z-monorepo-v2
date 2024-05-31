@@ -8,7 +8,10 @@ config({
 });
 
 export const env = {
-  configFile: envVar.get('CONFIG_FILE').required().asString(),
+  configFile: {
+    production: envVar.get('CONFIG_FILE.PRODUCTION').required().asString(),
+    development: envVar.get('CONFIG_FILE.DEVELOPMENT').required().asString(),
+  },
   mode: envVar.get('MODE').required().asString(),
 
   discord: {

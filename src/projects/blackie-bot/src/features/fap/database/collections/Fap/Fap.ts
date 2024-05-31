@@ -24,7 +24,7 @@ export namespace Fap {
     options: { disableCaching: true },
   });
   export const Test = getModelForClass(Fap, {
-    existingConnection: connections.test,
+    existingConnection: connections.development,
     options: { disableCaching: true },
   });
 
