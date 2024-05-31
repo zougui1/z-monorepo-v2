@@ -9,15 +9,6 @@ import { authorizer } from './middlewares';
 import { env } from './env';
 import { config } from './config';
 
-const port = 11445;
-const domain = 'http://localhost';
-
-const wait = (timeout: number): Promise<void> => {
-  return new Promise(resolve => {
-    setTimeout(resolve, timeout);
-  });
-}
-
 export interface ServerSocketEventMap {
   connectionChange: { connectedClients: number };
 }
@@ -30,7 +21,7 @@ class ServerSocket extends Emittery<ServerSocketEventMap> {
   constructor() {
     super();
 
-    this.io.listen(port);
+    this.io.listen(config.production.socket.port);
 
     this.io.on('connection', socket => {
       this.#connectionChanged = true;
@@ -60,7 +51,7 @@ class ServerSocket extends Emittery<ServerSocketEventMap> {
 }
 
 class ClientSocket {
-  readonly socket = io(`${domain}:${port}`);
+  readonly socket = io(`${config.production.socket.domain}:${config.production.socket.port}`);
 
   waitStatus = async (): Promise<{ isRunning: boolean }> => {
     return new Promise(resolve => {

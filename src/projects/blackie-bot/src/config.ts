@@ -11,7 +11,12 @@ const schema = zod.object({
   }),
 
   mongo: zod.object({
-    uri: zod.string(),
+    uri: zod.string().url(),
+  }),
+
+  socket: zod.object({
+    port: zod.number().positive().int(),
+    domain: zod.string().url(),
   }),
 });
 
