@@ -6,6 +6,10 @@ export class ServerSocket extends Emittery<ServerSocketEventMap> {
   #sockets = new Set<Socket>();
   #connectionChanged = false;
 
+  get connectedClients(): number {
+    return this.#sockets.size;
+  }
+
   constructor(options: ServerSocketOptions) {
     super();
 
@@ -22,7 +26,7 @@ export class ServerSocket extends Emittery<ServerSocketEventMap> {
       });
     });
 
-    // wait 5 seconds before emitting a fake connection change
+    // wait 2 seconds before emitting a fake connection change
     // for the initial initialization, only if it hasn't been emitted yet
     setTimeout(() => {
       if (!this.#connectionChanged) {

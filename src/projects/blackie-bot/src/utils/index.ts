@@ -13,3 +13,4 @@ export * from './string';
 export * from './url';
 export * from './isNullish';
 export * from './getChannelEnv';
+export * from './wait';

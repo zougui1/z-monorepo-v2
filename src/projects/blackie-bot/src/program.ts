@@ -6,6 +6,7 @@ import { authorizer } from './middlewares';
 import { env } from './env';
 import { config } from './config';
 import { ServerSocket, ClientSocket } from './socket';
+import { wait } from './utils';
 
 const startBot = async (): Promise<Client> => {
   console.log('starting up bot...');
@@ -65,8 +66,13 @@ const serverProgram = async (): Promise<void> => {
       return;
     }
 
-    console.log('client disconnected');
-    discord = await startBot();
+    // delay the start of the production bot to prevent it to start when the
+    // dev bot is actually just restarting
+    await wait(3000);
+
+    if (!server.connectedClients) {
+      discord = await startBot();
+    }
   });
 }
 
