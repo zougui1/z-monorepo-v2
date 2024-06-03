@@ -1,7 +1,7 @@
 import zod from 'zod';
 
-import { FapContentType } from './FapContentType';
-import { AutocompleteHandler, Option } from '../../discord';
+import { FapContentType } from '../FapContentType';
+import { AutocompleteHandler, Option } from '../../../discord';
 
 const contents = [
   FapContentType.Art,

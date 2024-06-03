@@ -21,7 +21,7 @@ export const executeAction = async (options: ExecuteActionOptions): Promise<void
   try {
     debug(`Executing ${preMiddlewares.length} pre-middlewares`);
     for await (const middleware of preMiddlewares) {
-      await middleware({ interaction, reply: undefined });
+      await middleware({ interaction, options: values, reply: undefined });
     }
 
     debug('Executing action');
@@ -39,7 +39,7 @@ export const executeAction = async (options: ExecuteActionOptions): Promise<void
   } finally {
     debug(`Executing ${postMiddlewares.length} post-middlewares`);
     for await (const middleware of postMiddlewares) {
-      await middleware({ interaction, reply: undefined });
+      await middleware({ interaction, options: values, reply: undefined });
     }
   }
 }
@@ -48,6 +48,6 @@ export interface ExecuteActionOptions {
   interaction: ChatInputCommandInteraction;
   values: Record<string, unknown>;
   action: CommandAction<Record<string, Option>>;
-  preMiddlewares: Middleware[];
-  postMiddlewares: Middleware[];
+  preMiddlewares: Middleware<ChatInputCommandInteraction>[];
+  postMiddlewares: Middleware<ChatInputCommandInteraction>[];
 }

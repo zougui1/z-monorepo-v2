@@ -11,11 +11,8 @@ export const cancelButton = new ButtonComponent('cancel-fap')
     return context.builder.setLabel('Cancel').setStyle(ButtonStyle.Primary);
   })
   .action(async context => {
-    const messagePromise = context.interaction.deferUpdate({ fetchReply: true });
-
+    const message = await context.interaction.deferUpdate({ fetchReply: true });
     const cancelService = new CancelService(getChannelEnv(context.interaction.channelId));
-
-    const message = await messagePromise;
     const fap = await cancelService.findByMessageId(message.id);
 
     if (!fap) {

@@ -18,10 +18,11 @@ export type ComponentInteraction = (
   | ModalSubmitInteraction
 );
 
-export interface MiddlewareContext {
-  interaction: ReplyableInteraction;
+export interface MiddlewareContext<I extends ReplyableInteraction = ReplyableInteraction> {
+  interaction: I;
   // TODO
   reply: unknown;
+  options?: unknown;
 }
 
-export type Middleware = (context: MiddlewareContext) => void | Promise<void>;
+export type Middleware<I extends ReplyableInteraction = ReplyableInteraction> = (context: MiddlewareContext<I>) => void | Promise<void>;

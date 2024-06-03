@@ -1,52 +1,76 @@
+
 import type { Interaction } from 'discord.js';
 
+import type { InteractionType } from './InteractionType';
+
 export class InteractionHandlerSet {
-  #set: Set<InteractionHandler> = new Set();
+  set: Set<InteractionHandler> = new Set();
 
   add = (...handlers: InteractionHandler[]): this => {
     for (const handler of handlers) {
-      this.#set.add(handler);
+      this.set.add(handler);
     }
 
     return this;
   }
 
   handle = async (interaction: Interaction): Promise<void> => {
-    let interactionType: InteractionType | undefined;
+    for (const handler of this.set.values()) {
+      const subHandler = handler.findSubHandler(interaction);
 
-    for (const handler of this.#set.values()) {
+      if (subHandler) {
+        return await subHandler.handle(interaction);
+      }
+
       if (!handler.isValidInteractionType(interaction)) {
         continue;
       }
 
-      interactionType = handler.interactionType;
 
       if (handler.canHandle(interaction)) {
-        await handler.handle(interaction);
-        return;
+        return await handler.handle(interaction);
       }
     }
 
-    if (!interactionType) {
-      throw new Error('Invalid interaction type');
-    }
+    const customId = 'customId' in interaction ? interaction.customId : undefined;
 
-    throw new Error(`No handler found for interaction of type ${interactionType}`);
+    throw new Error(`No handler found for interaction ID ${customId}`);
   }
 }
 
-export interface InteractionHandler<T extends Interaction = Interaction> {
-  interactionType: InteractionType;
+export abstract class InteractionHandler<T extends Interaction = Interaction> {
+  parent: InteractionHandler | undefined;
+  abstract readonly name: string;
+  abstract readonly subInteractionHandlers?: InteractionHandler[];
+  abstract interactionType: InteractionType;
 
-  isValidInteractionType(interaction: Interaction): interaction is T;
-  canHandle(interaction: Interaction): boolean;
-  handle(interaction: T): Promise<void>;
-}
+  abstract isValidInteractionType(interaction: Interaction): interaction is T;
+  abstract canHandle(interaction: T): boolean;
+  abstract handle(interaction: T): Promise<void>;
 
-export enum InteractionType {
-  Autocomplete = 'Autocomplete',
-  Command = 'Command',
-  StringSelectMenu = 'StringSelectMenu',
-  Button = 'Button',
-  ModalSubmit = 'ModalSubmit',
+  connectParent = (parent: InteractionHandler): void => {
+    this.parent = parent;
+  }
+
+  findSubHandler = (interaction: Interaction): InteractionHandler | undefined => {
+    for (const subHandler of this.subInteractionHandlers || []) {
+      if (subHandler.isValidInteractionType(interaction)) {
+        return subHandler.canHandle(interaction) ? subHandler : undefined;
+      }
+
+      try {
+        if (subHandler.canHandle(interaction)) {
+          const subSubHandler = subHandler.findSubHandler(interaction);
+          return subSubHandler ?? subHandler;
+        }
+      } catch { }
+    }
+  }
+
+  getId = (): string => {
+    return [
+      this.parent?.getId(),
+      this.name,
+    ].filter(Boolean).join('/');
+  }
 }

@@ -2,7 +2,7 @@ import { DateTime } from 'luxon';
 
 import { EndService } from './end.service';
 import { Command } from '../../../../discord';
-import { createContentOption } from '../../content.option';
+import { createContentOption } from '../../options';
 import { getChannelEnv } from '../../../../utils';
 
 export const end = new Command('end', 'End fapping')

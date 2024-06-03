@@ -1,7 +1,7 @@
 import { GatewayIntentBits } from 'discord.js';
 
 import { Client } from './discord';
-import { fap, clear } from './features';
+import { fap, clear, show } from './features';
 import { authorizer } from './middlewares';
 import { env } from './env';
 import { config } from './config';
@@ -27,6 +27,7 @@ const startBot = async (): Promise<Client> => {
 
   discord.addCommand(fap);
   discord.addCommand(clear);
+  discord.addCommand(show);
 
   console.log('starting')
   await discord.start();

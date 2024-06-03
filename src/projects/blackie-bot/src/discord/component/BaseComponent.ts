@@ -1,11 +1,11 @@
-import { nanoid } from 'nanoid';
 import type { Constructor } from 'type-fest';
 import type { Interaction } from 'discord.js';
 
 import { CommandResponse } from '../command/CommandResponse';
-import type { ComponentBuilder, ComponentAction, ComponentCreator, ComponentActionContext } from './types';
+import type { ComponentBuilder, ComponentAction, ComponentCreator } from './types';
+import { InteractionHandler } from '../InteractionHandlerSet';
 import type { ComponentInteraction } from '../types';
-import type { InteractionHandler, InteractionType } from '../InteractionHandlerSet';
+import type { InteractionType } from '../InteractionType';
 
 // class Action as base for Command and BaseComponent
 
@@ -13,17 +13,25 @@ export abstract class BaseComponent<
   I extends ComponentInteraction = ComponentInteraction,
   Builder extends ComponentBuilder = ComponentBuilder,
   Options extends Record<string, any> = {},
-> implements InteractionHandler<I> {
+> extends InteractionHandler<I> {
   readonly interactionType: InteractionType;
   readonly name: string;
   readonly #Builder: Constructor<Builder>;
+  readonly subInteractionHandlers: BaseComponent[] = [];
   #action: ComponentAction<I> | undefined;
   #creator: ComponentCreator<Options, Builder> | undefined;
 
   constructor(type: InteractionType, Builder: Constructor<Builder>, name: string) {
+    super();
+
     this.interactionType = type;
     this.name = name;
     this.#Builder = Builder;
+  }
+
+  addComponent = (component: BaseComponent<any, any, any>): this => {
+    this.subInteractionHandlers.push(component, ...component.subInteractionHandlers);
+    return this;
   }
 
   action = (callback: ComponentAction<I>): this => {

@@ -1,5 +1,12 @@
-- refactor the socket code
-- add NODE_ENV environment variable
-- determine whether the socket is server or client based on NODE_ENV
-- create a systemd service on the server
 - add all the commands existing from the previous bot
+  - fap
+    - fap-start: done
+    - fap-end: done
+    - stats: done
+  - show
+    - create-season: done
+    - watch-start: done
+    - watch-end: done
+    - stats: done
+  - music
+    - download: TODO

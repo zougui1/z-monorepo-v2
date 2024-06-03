@@ -6,7 +6,7 @@ import { getChannelEnv } from '../../../../utils';
 
 export const cancel = new Command('cancel', 'Cancel fapping')
   .action(async context => {
-    context.response.defer();
+    await context.response.defer();
 
     const cancelService = new CancelService(getChannelEnv(context.interaction.channelId));
 

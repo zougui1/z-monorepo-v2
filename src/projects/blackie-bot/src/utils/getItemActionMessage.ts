@@ -1,10 +1,10 @@
 import { tryStringifyRange } from './number';
 
 export const getItemActionMessage = (options: GetItemActionMessageOptions): string => {
-  const { itemName, numbers, actionLabel, itemLabels } = options;
+  const { itemName, numbers, actionLabel = '', itemLabels } = options;
 
   if (!numbers.length) {
-    return `${actionLabel} "${itemName}"`;
+    return `${actionLabel} "${itemName}"`.trim();
   }
 
   const range = tryStringifyRange(numbers);
@@ -14,18 +14,18 @@ export const getItemActionMessage = (options: GetItemActionMessageOptions): stri
     : itemLabels.singular.toLowerCase();
 
   if (range) {
-    return `${actionLabel} the ${pluralizedLabel} ${range} of "${itemName}"`;
+    return `${actionLabel} the ${pluralizedLabel} ${range} of "${itemName}"`.trim();
   }
 
   const chapterNumbersJoined = numbers.join(', ');
 
-  return `${actionLabel} the ${pluralizedLabel} ${chapterNumbersJoined} of "${itemName}"`;
+  return `${actionLabel} the ${pluralizedLabel} ${chapterNumbersJoined} of "${itemName}"`.trim();
 }
 
 export interface GetItemActionMessageOptions {
   itemName: string;
   numbers: number[];
-  actionLabel: string;
+  actionLabel?: string;
   itemLabels: {
     singular: string;
     plural: string;

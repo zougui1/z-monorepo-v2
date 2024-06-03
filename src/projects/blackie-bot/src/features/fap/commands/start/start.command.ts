@@ -5,7 +5,7 @@ import { endButton } from '../end';
 import { cancelButton } from '../cancel';
 import { FapContentType } from '../../FapContentType';
 import { Command } from '../../../../discord';
-import { createContentOptionWithDefaultValue } from '../../content.option';
+import { createContentOptionWithDefaultValue } from '../../options';
 import { compact, getChannelEnv } from '../../../../utils';
 import { ActionRowBuilder, ButtonBuilder } from '@discordjs/builders';
 import { contentMenu } from './content.menu';
@@ -18,7 +18,7 @@ export const start = new Command('start', 'Start fapping')
   .addComponent(contentMenu)
   .action(async context => {
     console.time('start')
-    const messagePromise = context.response.defer();
+    const message = await context.response.defer();
 
     const startService = new StartService(getChannelEnv(context.interaction.channelId));
     const unfinishedFap = await startService.getUnfinishedFap();
@@ -29,8 +29,6 @@ export const start = new Command('start', 'Start fapping')
 
       context.response.addWarning(`You forgot to stop fapping! You started fapping to ${content} ${relativeTime}`);
     }
-
-    const message = await messagePromise;
 
     await startService.createFap({
       ...context.options,

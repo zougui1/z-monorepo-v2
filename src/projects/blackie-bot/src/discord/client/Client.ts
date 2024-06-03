@@ -37,7 +37,8 @@ export class Client {
 
   addCommand(command: ICommand & InteractionHandler): this {
     this.#commands.set(command.name, command);
-    this.#interactionHandlerSet.add(command, ...command.subInteractionHandlers);
+    this.#interactionHandlerSet.add(command);
+    //this.#interactionHandlerSet.add(command, ...command.subInteractionHandlers);
     return this;
   }
 
@@ -64,8 +65,17 @@ export class Client {
     await this.client.destroy();
   }
 
+  private _log(handlers: InteractionHandler[]) {
+    for (const handler of handlers) {
+      console.group('handler', handler.name);
+      this._log(handler.subInteractionHandlers || []);
+      console.groupEnd();
+    }
+  }
+
   //#region private methods
   private async _initializeCommands(): Promise<void> {
+    this._log([...this.#interactionHandlerSet.set])
     const commands = Array.from(this.#commands.values()).map(command => command.toObject());
     const result = await initializeCommands(this.#rest, this.#clientId, commands);
 
@@ -80,6 +90,7 @@ export class Client {
         //buttons: this.buttons,qz
         //modals: this.modals,
       }));*/
+
       this.client.on('interactionCreate', async interaction => {
         try {
           await this.#interactionHandlerSet.handle(interaction);

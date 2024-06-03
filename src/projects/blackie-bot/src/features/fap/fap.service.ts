@@ -8,7 +8,7 @@ export class FapService {
   protected readonly query: Fap.Query;
 
   constructor(envType: EnvType) {
-    this.query = envType === EnvType.Production ? Fap.Prod : Fap.Test;
+    this.query = envType === EnvType.Production ? Fap.Prod : Fap.Dev;
   }
 
   getUnfinishedFap = async (options?: GetUnfinishedFapOptions): Promise<Fap.Object | undefined> => {

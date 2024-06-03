@@ -5,7 +5,7 @@ import { FapContentType } from '../../FapContentType';
 import { ActionRowBuilder, StringSelectMenuBuilder } from 'discord.js';
 
 export const contentMenu = new StringSelectMenuComponent('fap-content')
-  .onCreate<{ defaultContent: FapContentType }>(context => {
+  .onCreate<ContentMenuButtonOptions>(context => {
     const options = Object.values(FapContentType).map(content => {
       return {
         label: content,
@@ -18,12 +18,10 @@ export const contentMenu = new StringSelectMenuComponent('fap-content')
   })
   .action(async context => {
     const [value] = context.interaction.values;
-    const messagePromise = context.interaction.deferUpdate({ fetchReply: true });
-
+    const message = await context.interaction.deferUpdate({ fetchReply: true });
     const startService = new StartService(getChannelEnv(context.interaction.channelId));
-
-    const message = await messagePromise;
     const fap = await startService.findByMessageId(message.id);
+
     await startService.updateByMessageId(message.id, { content: value as FapContentType })
 
 
@@ -35,7 +33,6 @@ export const contentMenu = new StringSelectMenuComponent('fap-content')
 
     const [originalButtonRow, originalMenuRow] = message.components;
 
-    console.log('split:', fap?.content)
     const contentParts = fap && message.content.split(fap.content);
     const newContent = contentParts
       ? [
@@ -57,3 +54,7 @@ export const contentMenu = new StringSelectMenuComponent('fap-content')
       components: compact([originalMenuRow && originalButtonRow, menuRow]),
     });
   });
+
+export interface ContentMenuButtonOptions {
+  defaultContent: FapContentType;
+}

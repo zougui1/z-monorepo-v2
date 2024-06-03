@@ -11,20 +11,25 @@ import type { ICommand } from './ICommand';
 import type { CommandAction } from './types';
 import { Option, OptionMap, type OptionObject } from '../option';
 import type { Middleware } from '../types';
-import { InteractionHandler, InteractionType } from '../InteractionHandlerSet';
+import { InteractionHandler } from '../InteractionHandlerSet';
+import { InteractionType } from '../InteractionType';
 import { BaseComponent } from '../component';
+import { CommandGroup } from './CommandGroup';
 
-export class Command<Options extends Record<string, Option> = {}> implements ICommand, InteractionHandler {
+export class Command<Options extends Record<string, Option> = {}> extends InteractionHandler implements ICommand {
   readonly interactionType = InteractionType.Command;
   readonly name: string;
   readonly description: string;
-  readonly options: OptionMap = new OptionMap();
+  readonly options: OptionMap<Options> = new OptionMap();
   readonly subInteractionHandlers: InteractionHandler[] = [];
+  readonly components: BaseComponent[] = [];
   #action: CommandAction<Options> | undefined;
-  #preMiddlewares: Middleware[] = [];
-  #postMiddlewares: Middleware[] = [];
+  #preMiddlewares: Middleware<ChatInputCommandInteraction>[] = [];
+  #postMiddlewares: Middleware<ChatInputCommandInteraction>[] = [];
 
   constructor(name: string, description: string) {
+    super();
+
     this.name = name;
     this.description = description;
   }
@@ -49,7 +54,7 @@ export class Command<Options extends Record<string, Option> = {}> implements ICo
   }
 
   addComponent = (component: BaseComponent<any, any, any>): this => {
-    this.subInteractionHandlers.push(component);
+    this.components.push(component, ...component.subInteractionHandlers);
     return this;
   }
 
@@ -58,12 +63,12 @@ export class Command<Options extends Record<string, Option> = {}> implements ICo
     return this;
   }
 
-  pre(...middlewares: Middleware[]): this {
+  pre(...middlewares: Middleware<ChatInputCommandInteraction>[]): this {
     this.#preMiddlewares.push(...middlewares);
     return this;
   }
 
-  post(...middlewares: Middleware[]): this {
+  post(...middlewares: Middleware<ChatInputCommandInteraction>[]): this {
     this.#postMiddlewares.push(...middlewares);
     return this;
   }
@@ -82,7 +87,8 @@ export class Command<Options extends Record<string, Option> = {}> implements ICo
   }
 
   canHandle = (interaction: ChatInputCommandInteraction): boolean => {
-    return interaction.commandName === this.name;
+    const interactionName = interaction.options.getSubcommand(false) ?? interaction.commandName;
+    return interactionName === this.name;
   }
 
   // TODO

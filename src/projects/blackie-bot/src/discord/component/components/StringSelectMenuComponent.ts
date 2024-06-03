@@ -1,7 +1,7 @@
 import { StringSelectMenuInteraction, StringSelectMenuBuilder, Interaction } from 'discord.js';
 
 import { BaseComponent } from '../BaseComponent';
-import { InteractionType } from '../../InteractionHandlerSet';
+import { InteractionType } from '../../InteractionType';
 
 export class StringSelectMenuComponent extends BaseComponent<StringSelectMenuInteraction, StringSelectMenuBuilder> {
   constructor(name: string) {

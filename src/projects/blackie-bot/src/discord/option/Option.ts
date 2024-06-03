@@ -10,7 +10,8 @@ import type {
 import { convertOption } from './utils';
 import { createDefaultAutocompletion } from './default-autocompletions';
 import type { AutocompleteHandler } from '../autocomplete';
-import { InteractionHandler, InteractionType } from '../InteractionHandlerSet';
+import { InteractionHandler } from '../InteractionHandlerSet';
+import { InteractionType } from '../InteractionType';
 import { tryit } from 'radash';
 import chalk from 'chalk';
 
@@ -19,8 +20,9 @@ const maxOptions = 25;
 export class Option<
   OptionName extends string = string,
   Schema extends z.Schema = z.Schema,
-  > implements InteractionHandler {
+> extends InteractionHandler {
   readonly interactionType = InteractionType.Autocomplete;
+  readonly subInteractionHandlers: undefined;
   readonly name: OptionName;
   readonly description: string;
   isOptional: boolean;
@@ -28,6 +30,8 @@ export class Option<
   _autocomplete: AutocompleteHandler | undefined;
 
   constructor(name: OptionName, description: string, schema: Schema) {
+    super();
+
     this.name = name;
     this.description = description;
     this.schema = schema;

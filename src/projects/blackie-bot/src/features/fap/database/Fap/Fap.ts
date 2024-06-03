@@ -23,7 +23,7 @@ export namespace Fap {
     existingConnection: connections.production,
     options: { disableCaching: true },
   });
-  export const Test = getModelForClass(Fap, {
+  export const Dev = getModelForClass(Fap, {
     existingConnection: connections.development,
     options: { disableCaching: true },
   });

@@ -15,7 +15,7 @@ export const parseRange = (rangeString: string, options?: ParseRangeOptions | un
     throw new Error(`Could not find a valid range of numbers in "${rangeString}"`);
   }
 
-  return [...range(min, max + 1)];
+  return [...range(min, max)];
 }
 
 export interface ParseRangeOptions {

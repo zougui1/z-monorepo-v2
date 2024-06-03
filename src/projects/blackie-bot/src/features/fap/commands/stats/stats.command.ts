@@ -1,16 +1,12 @@
-import { DateTime } from 'luxon';
-import { MS } from '@zougui/common.ms';
-
 import { StatsService } from './stats.service';
-import { FapContentType } from '../../FapContentType';
 import { Command } from '../../../../discord';
-import { createContentOption } from '../../content.option';
+import { createContentOption } from '../../options';
 import { getChannelEnv } from '../../../../utils';
 
 export const stats = new Command('stats', 'Fapping statistics')
   .addOption(createContentOption())
   .action(async context => {
-    context.response.defer();
+    await context.response.defer();
 
     const statsService = new StatsService(getChannelEnv(context.interaction.channelId));
     const stats = await statsService.getStats({

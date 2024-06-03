@@ -10,9 +10,10 @@ import type { AnyCommand, Command } from './Command';
 import { CommandMap } from './CommandMap';
 import type { ICommand } from './ICommand';
 import type { Middleware } from '../types';
-import { InteractionHandler, InteractionType } from '../InteractionHandlerSet';
+import { InteractionHandler } from '../InteractionHandlerSet';
+import { InteractionType } from '../InteractionType';
 
-export class CommandGroup implements ICommand, InteractionHandler {
+export class CommandGroup extends InteractionHandler implements ICommand {
   readonly interactionType = InteractionType.Command;
   readonly name: string;
   readonly description: string;
@@ -22,6 +23,8 @@ export class CommandGroup implements ICommand, InteractionHandler {
   #postMiddlewares: Middleware[] = [];
 
   constructor(name: string, description: string) {
+    super();
+
     this.name = name;
     this.description = description;
   }
@@ -29,10 +32,12 @@ export class CommandGroup implements ICommand, InteractionHandler {
   // mustbe a generic ICommand that gets casted into AnyCommand
   // due to a type issue with the options' zod schema inference
   // in the command's action
-  addSubCommand(command: ICommand): this {
+  addSubCommand(command: Command<any>): this {
+    command.connectParent(this);
     command.pre(...this.#preMiddlewares);
     command.post(...this.#postMiddlewares);
-    this.subInteractionHandlers.push(...command.subInteractionHandlers);
+    this.subInteractionHandlers.push(command, ...command.components);
+    //this.subInteractionHandlers.push(command, ...command.subInteractionHandlers);
     this.subCommands.add(command as AnyCommand);
 
     return this;
