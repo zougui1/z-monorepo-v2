@@ -105,6 +105,7 @@ export class FapQuery {
   private deserialize = (document: Fap.Document): Fap.Object => {
     return {
       ...document.toObject(),
+      _id: document._id.toString(),
       startDate: DateTime.fromJSDate(document.startDate),
       endDate: document.endDate ? DateTime.fromJSDate(document.endDate) : undefined,
     };

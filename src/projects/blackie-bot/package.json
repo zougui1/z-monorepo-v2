@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "start": "DEBUG=@zougui:* nodemon lib",
+    "start": "DEBUG=@zougui:* nodemon --enable-source-maps lib",
     "start:prod": "NODE_ENV=production DEBUG=@zougui:* nodemon lib",
     "test": "jest",
     "test:watch": "jest --watchAll",

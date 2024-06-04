@@ -54,8 +54,8 @@ export abstract class InteractionHandler<T extends Interaction = Interaction> {
 
   findSubHandler = (interaction: Interaction): InteractionHandler | undefined => {
     for (const subHandler of this.subInteractionHandlers || []) {
-      if (subHandler.isValidInteractionType(interaction)) {
-        return subHandler.canHandle(interaction) ? subHandler : undefined;
+      if (subHandler.isValidInteractionType(interaction) && subHandler.canHandle(interaction)) {
+        return subHandler;
       }
 
       try {

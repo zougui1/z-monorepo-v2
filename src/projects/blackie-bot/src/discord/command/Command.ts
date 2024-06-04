@@ -91,8 +91,13 @@ export class Command<Options extends Record<string, Option> = {}> extends Intera
     return interactionName === this.name;
   }
 
-  // TODO
   async execute(interaction: ChatInputCommandInteraction): Promise<void> {
+    if (interaction.isChatInputCommand()) {
+      console.log('Command: interaction.isChatInputCommand')
+    }
+    if (interaction.isAutocomplete()) {
+      console.log('Command: interaction.isAutocomplete')
+    }
     if (!this.#action) {
       throw new Error(`Command ${this.name} has no action`);
     }

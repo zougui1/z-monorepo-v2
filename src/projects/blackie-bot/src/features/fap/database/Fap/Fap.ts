@@ -7,6 +7,13 @@ import { connections, type TypegooseDocument } from '../../../../database';
 export class Fap {
   @prop({ enum: FapContentType, type: String, required: true })
   content!: FapContentType;
+  /*
+  * custom schema type prototype
+  @prop({ type: LuxonDateTime, required: true })
+  startDate!: DateTime;
+
+  @prop({ type: LuxonDateTime, required: false })
+  endDate?: DateTime;*/
 
   @prop({ type: Date, required: true })
   startDate!: Date;

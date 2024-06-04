@@ -15,7 +15,7 @@ export class ShowQuery {
 
   create = async (show: SetOptional<Show, 'seasons'>): Promise<Show.Object> => {
     const document = await this.#model.create(show);
-    return document.toObject();
+    return this.deserialize(document);
   }
 
   addSeason = async (showName: string, season: Season): Promise<void> => {
@@ -28,12 +28,12 @@ export class ShowQuery {
 
   findById = async (showId: string): Promise<Show.Object | undefined> => {
     const document = await this.#model.findById(showId);
-    return document?.toObject();
+    return this.maybeDeserialize(document);
   }
 
   findByName = async (name: string): Promise<Show.Object | undefined> => {
     const document = await this.#model.findOne({ name });
-    return document?.toObject();
+    return this.maybeDeserialize(document);
   }
 
   search = async (options?: SearchOptions): Promise<Show.Object[]> => {
@@ -73,7 +73,23 @@ export class ShowQuery {
         seasons: 1,
       });
 
+    console.log(documents[0]?._id)
     return documents;
+  }
+
+  private deserialize = (document: Show.Document): Show.Object => {
+    const documentObject = document.toObject();
+
+    return {
+      ...documentObject,
+      _id: documentObject._id.toString(),
+    };
+  }
+
+  private maybeDeserialize = (document: Show.Document | undefined | null): Show.Object | undefined => {
+    if(document) {
+      return this.deserialize(document);
+    }
   }
 }
 
