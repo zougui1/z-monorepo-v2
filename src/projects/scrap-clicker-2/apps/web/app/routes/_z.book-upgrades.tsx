@@ -252,6 +252,7 @@ export default function BookUpgrades() {
                 invalidLevel={getInvalidFormValue('bookUpgrades.xp')}
                 icon={<XPIcon />}
                 upgradePerLevel={10}
+                highlight={predictedOptimalLevel && predictedOptimalLevel.xpLevel > data.bookUpgrades.xp}
                 inputName="bookUpgrades.xp"
                 error={getFormError('bookUpgrades.xp')}
                 onUpgrade={handleUpgrade('xp')}
@@ -297,7 +298,7 @@ export default function BookUpgrades() {
       <Divider />
 
       <div>
-        <div className="flex items-center gap-2">
+        <div className="hidden items-center gap-2 sm:flex">
           <span>XP/book level ratio:</span>
           <TooltipTextField
             defaultValue={getInvalidFormValue('xpBookLevelRatio') ?? data.xpBookLevelRatio}

@@ -33,6 +33,7 @@ export default function Layout() {
           label="Summary"
           href="/"
           value="/"
+          className="!max-w-28 md:!max-w-none !px-2 md:!px-4"
         />
 
         <LinkTab
@@ -40,6 +41,7 @@ export default function Layout() {
           label="Star calculator"
           href="/star-calculator"
           value="/star-calculator"
+          className="!max-w-28 md:!max-w-none !px-2 md:!px-4"
         />
 
         <LinkTab
@@ -47,6 +49,7 @@ export default function Layout() {
           label="Book Upgrades"
           href="/book-upgrades"
           value="/book-upgrades"
+          className="!max-w-28 md:!max-w-none !px-2 md:!px-4"
         />
       </Tabs>
 

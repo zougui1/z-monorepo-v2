@@ -27,7 +27,7 @@ export const BookUpgrade = (props: BookUpgradeProps) => {
   return (
     <div
       className={clsx(
-        'flex flex-col justify-between items-center text-white pt-2 font-bold BookUpgrade-root',
+        'flex flex-col justify-between items-center text-white pt-2 font-bold BookUpgrade-root !w-[130px] sm:!w-[150px]',
         {
           'BookUpgrade-highlighted': highlight,
         },
