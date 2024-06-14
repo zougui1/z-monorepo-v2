@@ -1,4 +1,4 @@
-import { Bound } from '~/utils';
+import { Bound } from 'app/utils';
 
 const minPosition = 0;
 

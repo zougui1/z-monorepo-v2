@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
 
-import { store } from '~/store';
-import { removeView, splitView } from '~/features/split-views/slice';
-import { persistentSelectNode } from '~/features/explorer/slice';
+import { store } from 'app/store';
+import { removeView, splitView } from 'app/features/split-views/slice';
+import { persistentSelectNode } from 'app/features/explorer/slice';
 
 import { focusTab, closePane, type BaseTabPayload } from './slice';
 import { selectOptionalPane } from './selectors';

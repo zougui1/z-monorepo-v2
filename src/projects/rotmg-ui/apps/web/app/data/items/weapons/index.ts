@@ -1,0 +1,12 @@
+export * as bows from './bows';
+export * as daggers from './daggers';
+export * as dualBlades from './dual-blades';
+export * as flails from './flails';
+export * as katanas from './katanas';
+export * as longbows from './longbows';
+export * as morningStars from './morning-stars';
+export * as spellblades from './spellblades';
+export * as staves from './staves';
+export * as swords from './swords';
+export * as tachis from './tachis';
+export * as wands from './wands';

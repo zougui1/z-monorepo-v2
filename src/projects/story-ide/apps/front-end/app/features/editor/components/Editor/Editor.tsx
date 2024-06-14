@@ -1,4 +1,4 @@
-import { useAppSelector } from '~/store';
+import { useAppSelector } from 'app/store';
 
 import { EditorTabs } from '../EditorTabs';
 import { EditorTabPanel } from '../EditorTabPanel';

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { getBodyHasCursor } from '~/utils';
+import { getBodyHasCursor } from 'app/utils';
 
 export const useBodyCursor = () => {
   const ref = useRef({ didDefineCursor: false });

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-import { useAppSelector, useAppDispatch, store } from '~/store';
-import { useShortcut } from '~/hooks';
+import { useAppSelector, useAppDispatch, store } from 'app/store';
+import { useShortcut } from 'app/hooks';
 
 import { NodeList } from '../NodeList';
 import { openDirectory, selectDirectoryNodes, startRenaming } from '../../slice';

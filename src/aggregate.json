@@ -1,0 +1,33 @@
+[
+  {
+    "$match": {}
+  },
+  {
+    "$lookup": {
+      "from": "watches",
+      "localField": "_id",
+      "foreignField": "show._id",
+      "as": "watches"
+    }
+  },
+  {
+    "$match": {
+      "watches.endDate": null
+    }
+  },
+  {
+    "$sort": {
+      "name": 1
+    }
+  },
+  {
+    "$limit": 25
+  },
+  {
+    "$project": {
+      "name": 1,
+      "source": 1,
+      "seasons": 1
+    }
+  }
+]

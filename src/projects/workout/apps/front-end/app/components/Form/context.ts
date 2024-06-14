@@ -1,7 +1,7 @@
 import type { UseFormRegister, FormState as ReactFormState, Control } from 'react-hook-form';
 import type zod from 'zod';
 
-import { createContextStore, type PayloadAction } from '@zougui/common.react-context-store';
+import { createContextStore, type PayloadAction } from '@zougui/common.react.context-store';
 import type { UnknownObject } from '@zougui/common.type-utils';
 
 // TODO import from @zougui/common.zod-def-parser

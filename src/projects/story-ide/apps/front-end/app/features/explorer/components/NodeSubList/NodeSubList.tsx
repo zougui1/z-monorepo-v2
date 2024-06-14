@@ -1,5 +1,5 @@
-import { useAppSelector, useAppDispatch } from '~/store';
-import { dirname } from '~/utils';
+import { useAppSelector, useAppDispatch } from 'app/store';
+import { dirname } from 'app/utils';
 
 import { NodeList } from '../NodeList';
 import {

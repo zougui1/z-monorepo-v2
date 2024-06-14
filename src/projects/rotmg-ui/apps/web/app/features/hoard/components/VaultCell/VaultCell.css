@@ -1,0 +1,45 @@
+
+.VaultCell img {
+  width: 100px;
+  min-width: 100px;
+}
+
+.VaultCell {
+  padding: 5px;
+  box-sizing: content-box;
+  background-color: #616161;
+  border: 5px solid #252223;
+  width: 100px;
+  height: 100px;
+}
+
+.VaultCell > div > div {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #575757;
+}
+
+.VaultCell.used > div > div {
+  background-color: #474747;
+}
+
+.VaultCell:hover:not(.used) > div > div {
+  box-shadow: inset 0 0 5px 3px #0006;
+}
+
+.VaultCell:active:not(.used) > div > div {
+  box-shadow: inset 0 0 5px 3px #000a;
+}
+
+.VaultCell-used > div > div {
+  box-shadow: inset 0 0 5px 3px #0003;
+}
+
+.VaultCell.used.slotted > div > div img {
+  filter: drop-shadow(0 0 1px #fd0000);
+}
+
+.VaultCell.used.enchanted > div > div img {
+  filter: drop-shadow(0 0 1px #fbff00);
+}

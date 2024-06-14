@@ -1,4 +1,4 @@
-import type { AppState } from '~/store';
+import type { AppState } from 'app/store';
 
 import type { Directory, Node } from './slice';
 import type { FS } from '@zougui/story-ide.types';

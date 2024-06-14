@@ -1,23 +1,27 @@
-import type OBSWebSocket from 'obs-websocket-js';
-
-import { checkIsLoadingScreen } from './checkIsLoadingScreen';
-import { restartRecord } from './restartRecord';
+import type { Manager } from './Manager';
 import { wait } from '../../utils';
+import { Game } from '../../Game';
 
-export const manageRecord = async (obs: OBSWebSocket): Promise<void> => {
-  const isLoading = await checkIsLoadingScreen();
+export const manageRecord = async (manager: Manager): Promise<void> => {
+  const isGameRunning = await Game.getIsRunning();
 
-  if (!isLoading) {
-    await wait(1000);
-    manageRecord(obs);
+  if (!isGameRunning) {
+    await wait(10_000);
     return;
   }
 
-  await wait(1500);
-  await restartRecord(obs);
+  const isLoading = await manager.checkIsLoadingScreen();
+
+  if (!isLoading) {
+    await wait(200);
+    await manageRecord(manager);
+    return;
+  }
+
+  await manager.restartRecord();
 
   // wait 5 seconds before restarting the record management to
   // prevent the record from being restarted more than once
-  await wait(5000);
-  manageRecord(obs);
+  await wait(200);
+  await manageRecord(manager);
 }

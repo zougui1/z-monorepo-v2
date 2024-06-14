@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 import { useDrop } from 'react-dnd';
 
-import { useAppDispatch } from '~/store';
-import { ExplorerDndType } from '~/features/explorer';
+import { useAppDispatch } from 'app/store';
+import { ExplorerDndType } from 'app/features/explorer';
 
 import { openFile, createPane } from '../slice';
 import { DropPosition, EditorDndType } from '../enums';

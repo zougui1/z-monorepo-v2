@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
-import { SplitPane } from '~/components/SplitPane';
-import { useAppDispatch, store } from '~/store';
+import { SplitPane } from 'app/components/SplitPane';
+import { useAppDispatch, store } from 'app/store';
 
 import { View } from '../View';
 import { resizeGrid } from '../../slice/slice';

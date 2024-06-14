@@ -2,7 +2,7 @@ import React, { useRef, useCallback, useMemo } from 'react';
 
 import { clamp } from '@zougui/common.math-utils';
 
-import { getWebValue } from '~/utils';
+import { getWebValue } from 'app/utils';
 
 import { Handles } from './Handles';
 import { useHandle } from './hooks';

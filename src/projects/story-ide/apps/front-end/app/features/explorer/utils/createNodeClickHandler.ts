@@ -1,7 +1,7 @@
 import type { FS } from '@zougui/story-ide.types';
 
-import type { AppDispatch } from '~/store';
-import { openFile } from '~/features/editor/slice';
+import type { AppDispatch } from 'app/store';
+import { openFile } from 'app/features/editor/slice';
 
 import { persistentSelectNode, addSelectedPath } from '../slice';
 

@@ -1,6 +1,6 @@
 import { clearAllListeners } from '@reduxjs/toolkit';
 
-import { isWeb } from '~/utils';
+import { isWeb } from 'app/utils';
 
 import { createStore } from './createStore';
 import type { Store, AppState, AppDispatch } from './store';

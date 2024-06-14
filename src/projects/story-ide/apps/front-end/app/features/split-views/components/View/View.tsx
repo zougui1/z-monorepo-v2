@@ -1,4 +1,4 @@
-import { useAppDispatch } from '~/store';
+import { useAppDispatch } from 'app/store';
 
 import { Grid } from '../Grid';
 import { focusView } from '../../slice';

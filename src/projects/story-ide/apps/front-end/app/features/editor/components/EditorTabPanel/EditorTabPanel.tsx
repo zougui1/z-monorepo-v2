@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import clsx from 'clsx';
 import { Editor as MonacoEditor } from '@monaco-editor/react';
 
-import { isElectron } from '~/utils';
+import { isElectron } from 'app/utils';
 
 import { useTabEditor } from './hooks';
 import { useEditorDrop } from '../../hooks';

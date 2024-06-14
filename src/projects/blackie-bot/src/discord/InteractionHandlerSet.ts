@@ -66,11 +66,4 @@ export abstract class InteractionHandler<T extends Interaction = Interaction> {
       } catch { }
     }
   }
-
-  getId = (): string => {
-    return [
-      this.parent?.getId(),
-      this.name,
-    ].filter(Boolean).join('/');
-  }
 }

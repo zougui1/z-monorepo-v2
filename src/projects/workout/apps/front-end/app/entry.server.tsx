@@ -6,6 +6,32 @@ import { RemixServer } from '@remix-run/react';
 import isbot from 'isbot';
 import { renderToPipeableStream } from 'react-dom/server';
 
+import express from 'express';
+
+import { useRouter } from '@zougui/common.ts-rest.express';
+
+import { router } from './api/ts-rest/express';
+
+const app = express();
+app.use(express.json());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'HEAD, GET, POST, PUT, PATCH, DELETE',
+  );
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, Content-Type, Accept, Authorization',
+  );
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+
+  next();
+});
+// eslint-disable-next-line react-hooks/rules-of-hooks
+app.use(useRouter(router));
+app.listen(3500);
+
 const ABORT_DELAY = 5_000;
 
 const createApp = (url: string, remixContext: EntryContext) => {

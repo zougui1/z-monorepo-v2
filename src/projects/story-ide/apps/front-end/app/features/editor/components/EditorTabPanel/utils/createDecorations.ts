@@ -1,6 +1,6 @@
 import type { editor as Editor } from 'monaco-editor';
 
-import { makeInlineCss, createOrEditStyleTag, compact } from '~/utils';
+import { makeInlineCss, createOrEditStyleTag, compact } from 'app/utils';
 
 import type { Monaco } from '../../../types';
 

@@ -4,7 +4,7 @@ import type { V2_MetaFunction } from '@remix-run/node';
 
 import { createWorkout } from '~/features/workout/api/createWorkout';
 import { useRequest } from '~/hooks';
-import { client } from '~/utils/ts-rest/test';
+import { client } from '~/api/ts-rest/client';
 import { useEffect } from 'react';
 
 export const meta: V2_MetaFunction = () => {
@@ -26,9 +26,10 @@ export default function Index() {
   }
 
   useEffect(() => {
-    console.log(client.v1.users.getUser({
-      params: {id: '45'},
-    }))
+    client.users
+      .getMany()
+      .then(console.log)
+      .catch(console.error);
   }, []);
 
   return (

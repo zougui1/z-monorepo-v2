@@ -4,7 +4,7 @@ import zod from 'zod';
 
 import type { FS } from '@zougui/story-ide.types';
 
-import { useAppDispatch, store } from '~/store';
+import { useAppDispatch, store } from 'app/store';
 
 import { cancelRenaming, renameNode } from '../slice';
 

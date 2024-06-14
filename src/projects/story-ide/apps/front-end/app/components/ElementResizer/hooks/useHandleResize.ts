@@ -1,4 +1,4 @@
-import { useWindowEvent } from '~/hooks';
+import { useWindowEvent } from 'app/hooks';
 
 import type { Handle } from './useActiveHandle';
 import { getBounds } from '../utils';

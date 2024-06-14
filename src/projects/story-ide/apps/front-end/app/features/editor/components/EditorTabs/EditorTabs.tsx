@@ -1,7 +1,7 @@
 import { Tabs } from '@mui/material';
 
-import { useAppSelector, useAppDispatch } from '~/store';
-import { persistentSelectNode } from '~/features/explorer/slice';
+import { useAppSelector, useAppDispatch } from 'app/store';
+import { persistentSelectNode } from 'app/features/explorer/slice';
 
 import { EditorTab } from '../EditorTab';
 import { focusTab, selectPane } from '../../slice';

@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { electronApi } from '@zougui/story-ide.electron-api';
 import type { FS } from '@zougui/story-ide.types';
 
-import { electron } from '~/utils';
+import { electron } from 'app/utils';
 
 import { getNodes } from '../api';
 

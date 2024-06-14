@@ -1,4 +1,4 @@
-import { store } from '~/store';
+import { store } from 'app/store';
 
 import { closeDirectory } from './slice';
 import { openDirectory, type OpenDirectoryPayload } from './middlewares';

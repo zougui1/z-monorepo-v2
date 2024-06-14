@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { useWindowEvent } from '~/hooks';
+import { useWindowEvent } from 'app/hooks';
 
 import { createGetResizeDirection } from '../utils';
 import { resizeCursors } from '../resizeCursors';

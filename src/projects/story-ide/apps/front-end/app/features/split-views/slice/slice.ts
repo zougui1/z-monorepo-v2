@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { nanoid } from 'nanoid';
 
-import { DropPosition } from '~/features/editor/enums';
+import { DropPosition } from 'app/features/editor/enums';
 
 import { createTree } from '../utils';
 import type { SplitGrid } from '../types';

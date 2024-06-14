@@ -2,8 +2,8 @@ import clsx from 'clsx';
 
 import type { FS } from '@zougui/story-ide.types';
 
-import { useAppSelector, useAppDispatch } from '~/store';
-import { useBodyCursor } from '~/hooks';
+import { useAppSelector, useAppDispatch } from 'app/store';
+import { useBodyCursor } from 'app/hooks';
 
 import { NodeLabel } from '../NodeLabel';
 import { NodeSubList } from '../NodeSubList';

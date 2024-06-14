@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
-import { useAppSelector, useAppDispatch } from '~/store';
-import { initSplitViews } from '~/features/split-views/slice';
-import { SplitViews } from '~/features/split-views/components/SplitViews';
-import { Explorer } from '~/features/explorer/components/Explorer';
-import { Editor } from '~/features/editor/components/Editor';
+import { useAppSelector, useAppDispatch } from 'app/store';
+import { initSplitViews } from 'app/features/split-views/slice';
+import { SplitViews } from 'app/features/split-views/components/SplitViews';
+import { Explorer } from 'app/features/explorer/components/Explorer';
+import { Editor } from 'app/features/editor/components/Editor';
 
 export default function Workspaces() {
   const dispatch = useAppDispatch();

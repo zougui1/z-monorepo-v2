@@ -3,7 +3,7 @@ import joinUrl from 'url-join';
 
 import { electronApi } from '@zougui/story-ide.electron-api';
 
-import { selectByPlatform, electron } from '~/utils';
+import { selectByPlatform, electron } from 'app/utils';
 
 export const getFileContent = (path: string): Promise<string> => {
   const request = selectByPlatform({

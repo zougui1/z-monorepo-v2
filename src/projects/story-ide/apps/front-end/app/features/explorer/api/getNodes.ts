@@ -4,7 +4,7 @@ import joinUrl from 'url-join';
 import { electronApi } from '@zougui/story-ide.electron-api';
 import type { FS } from '@zougui/story-ide.types';
 
-import { selectByPlatform, electron } from '~/utils';
+import { selectByPlatform, electron } from 'app/utils';
 
 export const getNodes = (path: string): Promise<FS.Node[]> => {
   const request = selectByPlatform({

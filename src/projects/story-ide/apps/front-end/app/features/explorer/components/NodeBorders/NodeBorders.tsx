@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { useAppSelector } from '~/store';
+import { useAppSelector } from 'app/store';
 
 import {
   selectHoveredDirectory,

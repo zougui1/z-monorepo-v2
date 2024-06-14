@@ -4,7 +4,7 @@ import { useDrag } from 'react-dnd';
 
 import type { FS } from '@zougui/story-ide.types';
 
-import { useAppSelector } from '~/store';
+import { useAppSelector } from 'app/store';
 
 import { getNodeTypeIcon, getExpandIcon } from './utils';
 import { NodeBorders } from '../NodeBorders';

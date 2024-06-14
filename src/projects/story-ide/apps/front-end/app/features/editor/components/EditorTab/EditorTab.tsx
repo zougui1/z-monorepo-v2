@@ -3,9 +3,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import clsx from 'clsx';
 
 //import { Tab } from '~/components/Tab';
-import { useAppSelector, useAppDispatch } from '~/store';
-import { getFileName } from '~/utils';
-import { getFileTypeIcon } from '~/utils';
+import { useAppSelector, useAppDispatch } from 'app/store';
+import { getFileName } from 'app/utils';
+import { getFileTypeIcon } from 'app/utils';
 
 import { closeTab, selectTab, selectPane } from '../../slice';
 

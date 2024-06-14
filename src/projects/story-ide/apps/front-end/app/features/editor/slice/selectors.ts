@@ -1,4 +1,4 @@
-import type { AppState } from '~/store';
+import type { AppState } from 'app/store';
 
 import type { EditorPane, EditorTab } from './slice';
 

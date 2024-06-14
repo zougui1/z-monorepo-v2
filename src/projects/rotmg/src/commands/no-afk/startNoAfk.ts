@@ -4,7 +4,7 @@ import { tryit } from 'radash';
 
 import { Random } from '@zougui/common.random-utils';
 
-import { maxDelay, minDelay, movementKeys, keyboardInputSocket } from '../../constants';
+import { maxDelay, minDelay, movementKeys, keyboardInputSocket } from './constants';
 import { Game } from '../../Game';
 import { Xdotool } from '../../Xdotool';
 import { connectToSocket } from '../../utils';

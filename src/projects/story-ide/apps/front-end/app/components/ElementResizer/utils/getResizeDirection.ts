@@ -1,4 +1,4 @@
-import { includesAll } from '~/utils';
+import { includesAll } from 'app/utils';
 
 import { Position, Direction } from '../enums';
 

@@ -1,9 +1,9 @@
 import type { SVGProps } from 'react';
 
-import FileTypeMarkdown from '~/icons/FileTypeMarkdown';
-import FileTypeJson from '~/icons/FileTypeJson';
-import DefaultFile from '~/icons/DefaultFile';
-import FileTypeGit from '~/icons/FileTypeGit';
+import FileTypeMarkdown from 'app/icons/FileTypeMarkdown';
+import FileTypeJson from 'app/icons/FileTypeJson';
+import DefaultFile from 'app/icons/DefaultFile';
+import FileTypeGit from 'app/icons/FileTypeGit';
 
 const iconMap = new Map<string, SvgComponent | undefined>([
   ['md', FileTypeMarkdown],

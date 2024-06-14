@@ -1,0 +1,16 @@
+export enum MongoTypeName {
+  MongoString = 'MongoString',
+  MongoNumber = 'MongoNumber',
+  MongoBoolean = 'MongoBoolean',
+  MongoObject = 'MongoObject',
+  MongoArray = 'MongoArray',
+  MongoDate = 'MongoDate',
+  MongoBigInt = 'MongoBigInt',
+  MongoObjectId = 'MongoObjectId',
+  MongoEnum = 'MongoEnum',
+  MongoOptional = 'MongoOptional',
+  MongoDefault = 'MongoDefault',
+  MongoUnion = 'MongoUnion',
+  MongoUndefined = 'MongoUndefined',
+  MongoNull = 'MongoNull',
+}

@@ -1,0 +1,7 @@
+.CharacterAvatar-root {
+  min-width: 150px;
+}
+
+.CharacterAvatar-details {
+  transform: translateY(-15px);
+}

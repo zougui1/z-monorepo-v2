@@ -1,4 +1,4 @@
-import { TreeNode } from '~/utils';
+import { TreeNode } from 'app/utils';
 
 import type { SplitGrid, SplitView } from '../types';
 

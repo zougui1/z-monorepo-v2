@@ -3,8 +3,8 @@ import { Controller } from 'react-hook-form';
 
 import type { FS } from '@zougui/story-ide.types';
 
-import { useAppSelector } from '~/store';
-import { preventEvent } from '~/utils';
+import { useAppSelector } from 'app/store';
+import { preventEvent } from 'app/utils';
 
 import { selectIsRenamingNode } from '../../slice';
 import { useRenameForm } from '../../hooks';

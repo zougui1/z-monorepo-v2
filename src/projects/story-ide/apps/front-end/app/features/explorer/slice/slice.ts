@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 import type { FS } from '@zougui/story-ide.types';
 
-import { toggle } from '~/utils';
+import { toggle } from 'app/utils';
 
 import { openDirectory, renameNode } from './middlewares';
 
