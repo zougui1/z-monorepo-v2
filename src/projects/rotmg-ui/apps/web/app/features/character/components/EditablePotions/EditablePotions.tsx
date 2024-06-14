@@ -1,31 +1,19 @@
-import { InputAdornment } from '@mui/material';
 import clsx from 'clsx';
 
-import { NumberInput } from '~/components/NumberInput';
-import { stats } from '~/data/stats';
+import { Stat, stats } from '~/data/stats';
 import type { Potions } from '~/types';
+
+import { EditablePotion } from '../EditablePotion';
 
 export const EditablePotions = ({ potions, disabled, className, ...rest }: EditablePotionsProps) => {
   return (
     <div {...rest} className={clsx('flex flex-wrap gap-2 items-center', className)}>
       {Object.values(stats).map(stat => (
-        <NumberInput
+        <EditablePotion
           key={stat.name}
+          stat={stat as Stat}
           disabled={disabled}
-          defaultValue={potions[stat.name]}
-          style={{ width: 100 }}
-          color="warning"
-          focused={potions[stat.name] > 0}
-          min={0}
-          max={99}
-          name={`potionsRemaining.${stat.name}`}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start" className="!mr-0" style={{ minWidth: 32, minHeight: 24 }}>
-                <stat.PotionIcon style={{ width: 32 }} />
-              </InputAdornment>
-            ),
-          }}
+          value={potions[stat.name]}
         />
       ))}
     </div>

@@ -33,12 +33,15 @@ export const NumberInput = (props: NumberInputProps) => {
     disabled,
     disabledUpArrow,
     disabledDownArrow,
+    value: propsValue,
     min = -Infinity,
     max = Infinity,
     ...rest
   } = props;
   const internalInputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
-  const [value, setValue] = useState<string | null>(defaultValue ? String(defaultValue) : null);
+  const [stateValue, setValue] = useState<string | null>(defaultValue ? String(defaultValue) : null);
+
+  const value = propsValue ?? stateValue;
 
   const valueNumber = Number(value);
   const actualInputRef = useForkRef(internalInputRef, inputRef);
@@ -104,6 +107,7 @@ export const NumberInput = (props: NumberInputProps) => {
       {...errorProps}
       disabled={disabled}
       defaultValue={defaultValue}
+      value={propsValue}
       onChange={handleChange}
       onBlur={handleBlur}
       onKeyDown={handleKeyPress}

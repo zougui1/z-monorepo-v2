@@ -8,7 +8,7 @@ export const SeasonalFilter = ({ defaultValue }: SeasonalFilterProps) => {
   const [searchParams] = useSearchParams();
 
   return (
-    <RadioGroup row name="seasonal" defaultValue={searchParams.get('seasonal') || defaultValue}>
+    <RadioGroup row name="seasonal" value={searchParams.get('seasonal') || defaultValue}>
       <LabelledRadio label="Seasonal" value="yes" />
       <LabelledRadio label="Non-Seasonal" value="no" />
       <LabelledRadio label="All" value="all" />

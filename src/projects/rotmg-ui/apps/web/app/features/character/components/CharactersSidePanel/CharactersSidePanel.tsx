@@ -5,6 +5,7 @@ import { CharactersSidePanelContextProvider } from './CharactersSidePanelContext
 import { CharacterListSection } from './compounds/CharacterListSection';
 import { PotionsSection } from './compounds/PotionsSection';
 import { FiltersSection } from './compounds/FiltersSection';
+import { SettingsSection } from './compounds/SettingsSection';
 
 export const CharactersSidePanel = ({ children, characters }: CharactersSidePanelProps) => {
   return (
@@ -27,3 +28,4 @@ export interface CharactersSidePanelProps {
 CharactersSidePanel.CharacterListSection = CharacterListSection;
 CharactersSidePanel.PotionsSection = PotionsSection;
 CharactersSidePanel.FiltersSection = FiltersSection;
+CharactersSidePanel.SettingsSection = SettingsSection;

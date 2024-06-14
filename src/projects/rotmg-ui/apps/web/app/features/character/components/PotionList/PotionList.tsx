@@ -13,7 +13,7 @@ export const PotionList = ({ potions }: PotionListProps) => {
             'opacity-50': potions[stat.name] <= 0,
           })}
         >
-          <stat.PotionIcon className="w-10" />
+          <stat.potion.Small className="w-10" />
           <span>{potions[stat.name]}</span>
         </li>
       ))}

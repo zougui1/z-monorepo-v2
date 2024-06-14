@@ -183,11 +183,14 @@ export default function Index() {
       <CharactersSidePanel characters={inclusiveCharacters}>
         <CharactersSidePanel.CharacterListSection />
         <CharactersSidePanel.PotionsSection />
+
         <CharactersSidePanel.FiltersSection>
           <CharactersSidePanel.FiltersSection.Exalted />
           <CharactersSidePanel.FiltersSection.MaxedStars />
           <CharactersSidePanel.FiltersSection.Seasonal defaultValue="all" />
         </CharactersSidePanel.FiltersSection>
+
+        <CharactersSidePanel.SettingsSection />
       </CharactersSidePanel>
     </div>
   );

@@ -7,7 +7,7 @@ export const MaxedStarsFilter = () => {
   const [searchParams] = useSearchParams();
 
   return (
-    <RadioGroup row name="maxedStars" defaultValue={searchParams.get('maxedStars') || 'all'}>
+    <RadioGroup row name="maxedStars" value={searchParams.get('maxedStars') || 'all'}>
       <LabelledRadio label="Maxed Stars" value="yes" />
       <LabelledRadio label="Unmaxed Stars" value="no" />
       <LabelledRadio label="All" value="all" />

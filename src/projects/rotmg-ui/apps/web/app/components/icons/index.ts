@@ -1,4 +1,4 @@
-export * from './potionIcons';
+export * as PotionIcons from './potionIcons';
 export * as PortalIcons from './portalIcons';
 export * from './skinIcons';
 export * from './misc';

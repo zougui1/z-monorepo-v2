@@ -10,12 +10,17 @@ import { SideSection } from '../../../../../../components/SideSection';
 export const FiltersSection = ({ children }: FiltersSectionProps) => {
   const fetchers = useFetcher();
   const filterFormRef = useRef<HTMLFormElement | null>(null);
-  const [, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleFilter = () => {
     if (filterFormRef.current) {
       const formData = new FormData(filterFormRef.current);
-      setSearchParams(new URLSearchParams(formData));
+      const formParams = new URLSearchParams(formData);
+
+      setSearchParams(new URLSearchParams({
+        ...Object.fromEntries(searchParams),
+        ...Object.fromEntries(formParams),
+      }));
     }
   }
 

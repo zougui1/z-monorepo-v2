@@ -1,41 +1,35 @@
-import { createImgIcon } from '~/utils/component-factory';
+import { StatName } from '~/data/stats';
+import { createImgIcon, type IconComponent } from '~/utils/component-factory';
+import { upperFirst } from '~/utils/string';
 
-export const AttackPotionIcon = createImgIcon({
-  src: '/images/potions/AttackPotion.png',
-  alt: 'Attack Potion',
-});
+const createPotionIcon = (size: 'small' | 'greater', name: StatName): IconComponent => {
+  const statName = upperFirst(name);
+  const prefix = size === 'greater' ? 'Greater' : '';
 
-export const DefensePotionIcon = createImgIcon({
-  src: '/images/potions/DefensePotion.png',
-  alt: 'Defense Potion',
-});
+  return createImgIcon({
+    src: `/images/potions/${size}/${statName}Potion.png`,
+    alt: `${prefix} ${statName} Potion`.trim(),
+  });
+}
 
-export const SpeedPotionIcon = createImgIcon({
-  src: '/images/potions/SpeedPotion.png',
-  alt: 'Speed Potion',
-});
+export const small = {
+  Attack: createPotionIcon('small', 'attack'),
+  Defense: createPotionIcon('small', 'defense'),
+  Speed: createPotionIcon('small', 'speed'),
+  Dexterity: createPotionIcon('small', 'dexterity'),
+  Vitality: createPotionIcon('small', 'vitality'),
+  Wisdom: createPotionIcon('small', 'wisdom'),
+  Life: createPotionIcon('small', 'life'),
+  Mana: createPotionIcon('small', 'mana'),
+};
 
-export const DexterityPotionIcon = createImgIcon({
-  src: '/images/potions/DexterityPotion.png',
-  alt: 'Dexterity Potion',
-});
-
-export const VitalityPotionIcon = createImgIcon({
-  src: '/images/potions/VitalityPotion.png',
-  alt: 'Vitality Potion',
-});
-
-export const WisdomPotionIcon = createImgIcon({
-  src: '/images/potions/WisdomPotion.png',
-  alt: 'Wisdom Potion',
-});
-
-export const LifePotionIcon = createImgIcon({
-  src: '/images/potions/LifePotion.png',
-  alt: 'Life Potion',
-});
-
-export const ManaPotionIcon = createImgIcon({
-  src: '/images/potions/ManaPotion.png',
-  alt: 'Mana Potion',
-});
+export const greater = {
+  Attack: createPotionIcon('greater', 'attack'),
+  Defense: createPotionIcon('greater', 'defense'),
+  Speed: createPotionIcon('greater', 'speed'),
+  Dexterity: createPotionIcon('greater', 'dexterity'),
+  Vitality: createPotionIcon('greater', 'vitality'),
+  Wisdom: createPotionIcon('greater', 'wisdom'),
+  Life: createPotionIcon('greater', 'life'),
+  Mana: createPotionIcon('greater', 'mana'),
+};

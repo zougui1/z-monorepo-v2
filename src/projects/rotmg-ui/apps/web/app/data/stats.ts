@@ -1,64 +1,98 @@
-import {
-  AttackPotionIcon,
-  DefensePotionIcon,
-  SpeedPotionIcon,
-  DexterityPotionIcon,
-  VitalityPotionIcon,
-  WisdomPotionIcon,
-  LifePotionIcon,
-  ManaPotionIcon,
-  PortalIcons,
-} from '~/components/icons';
+import { PortalIcons, PotionIcons } from '~/components/icons';
+import type { IconComponent } from '~/utils/component-factory';
 
 export const stats = {
   life: {
     name: 'life',
     short: 'LIFE',
-    PotionIcon: LifePotionIcon,
+    potion: {
+      Small: PotionIcons.small.Life,
+      Greater: PotionIcons.greater.Life,
+    },
     PortalIcon: PortalIcons.SmallOryxSanctuary
   },
   mana: {
     name: 'mana',
     short: 'MANA',
-    PotionIcon: ManaPotionIcon,
+    potion: {
+      Small: PotionIcons.small.Mana,
+      Greater: PotionIcons.greater.Mana,
+    },
     PortalIcon: PortalIcons.TheVoid
   },
   attack: {
     name: 'attack',
     short: 'ATT',
-    PotionIcon: AttackPotionIcon,
+    potion: {
+      Small: PotionIcons.small.Attack,
+      Greater: PotionIcons.greater.Attack,
+    },
     PortalIcon: PortalIcons.TheShatters
   },
   defense: {
     name: 'defense',
     short: 'DEF',
-    PotionIcon: DefensePotionIcon,
+    potion: {
+      Small: PotionIcons.small.Defense,
+      Greater: PotionIcons.greater.Defense,
+    },
     PortalIcon: PortalIcons.LostHalls
   },
   speed: {
     name: 'speed',
     short: 'SPD',
-    PotionIcon: SpeedPotionIcon,
+    potion: {
+      Small: PotionIcons.small.Speed,
+      Greater: PotionIcons.greater.Speed,
+    },
     PortalIcon: PortalIcons.CultistHideout
   },
   dexterity: {
     name: 'dexterity',
     short: 'DEX',
-    PotionIcon: DexterityPotionIcon,
+    potion: {
+      Small: PotionIcons.small.Dexterity,
+      Greater: PotionIcons.greater.Dexterity,
+    },
     PortalIcon: PortalIcons.TheNest
   },
   vitality: {
     name: 'vitality',
     short: 'VIT',
-    PotionIcon: VitalityPotionIcon,
+    potion: {
+      Small: PotionIcons.small.Vitality,
+      Greater: PotionIcons.greater.Vitality,
+    },
     PortalIcon: PortalIcons.KogboldSteamworks
   },
   wisdom: {
     name: 'wisdom',
     short: 'WIS',
-    PotionIcon: WisdomPotionIcon,
+    potion: {
+      Small: PotionIcons.small.Wisdom,
+      Greater: PotionIcons.greater.Wisdom,
+    },
     PortalIcon: PortalIcons.FungalCavern
   },
-} as const;
+} satisfies Record<StatName, Stat>;
 
-export type StatName = keyof typeof stats;
+export type StatName = (
+  | 'life'
+  | 'mana'
+  | 'defense'
+  | 'attack'
+  | 'speed'
+  | 'dexterity'
+  | 'vitality'
+  | 'wisdom'
+);
+
+export interface Stat {
+  name: StatName;
+  short: string;
+  potion: {
+    Small: IconComponent;
+    Greater: IconComponent;
+  };
+  PortalIcon: IconComponent;
+};
