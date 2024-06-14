@@ -1,0 +1,13 @@
+.BookUpgrade-root {
+  width: 150px;
+  height: 150px;
+  background-color: #555;
+}
+
+.BookUpgrade-highlighted {
+  background-color: #37f;
+}
+
+.BookUpgrade-contrast-background {
+  background-color: #0005;
+}
