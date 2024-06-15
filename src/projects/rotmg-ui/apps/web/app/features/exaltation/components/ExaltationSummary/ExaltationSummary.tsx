@@ -28,7 +28,7 @@ export const ExaltationSummary = ({ name, skinIcon, classData, onClick }: Exalta
       <div className="flex gap-4">
         {statOrdering.map(statName => stats[statName]).map(stat => (
           <div key={stat.name} className="flex items-center">
-            <stat.PotionIcon />
+            <stat.potion.Small />
             <span
               className={clsx({
                 'text-yellow-300': getExaltationLevel(stat.name) >= maxExaltationLevel,

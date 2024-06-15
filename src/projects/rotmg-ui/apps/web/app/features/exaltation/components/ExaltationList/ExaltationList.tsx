@@ -10,7 +10,7 @@ export const ExaltationList = ({ exaltations }: ExaltationListProps) => {
       {statOrdering.map(statName => stats[statName]).map(stat => (
         <li key={stat.name}>
           <ExaltationProgress
-            potionIcon={<stat.PotionIcon />}
+            potionIcon={<stat.potion.Small />}
             statName={stat.name}
             shortName={stat.short}
             level={exaltations[stat.name].level}
