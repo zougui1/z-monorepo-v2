@@ -1154,6 +1154,7 @@ export const itemSections: ItemSection[] = [
       items.abilities.shields.ut.shieldOfOgmur,
       items.weapons.katanas.ut.rayKatana,
       items.rings.ut.tokenOfHappiness,
+      items.rings.ut.tokenOfWarmth,
       items.armors.heavyArmors.ut.heavyProtectiveMatrix,
       items.armors.leatherArmors.ut.fittedProtectiveMatrix,
       items.armors.robes.ut.magicProtectiveMatrix,
