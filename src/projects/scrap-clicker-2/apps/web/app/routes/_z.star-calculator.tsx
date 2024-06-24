@@ -1,12 +1,13 @@
 import { useRef } from 'react';
 import { useLoaderData, useFetcher } from '@remix-run/react';
 import { Typography, Divider } from '@mui/material';
+import { EmojiEvents as EmojiEventsIcon } from '@mui/icons-material';
 import { json, type MetaFunction, type ActionFunctionArgs } from '@remix-run/node';
 import { useDebouncedCallback } from 'use-debounce';
 
 import { getData, updateData, Data, ErrorResponse } from '~/api/data';
 import { MagnetIcon, GoldenScrapIcon, StarFragmentIcon, StarIcon, ScrapyardV2Icon } from '~/components/icons';
-import { getStarUpgradeProgress } from '~/features/star-cost/utils';
+import { getStarUpgradeProgress, findAvailableStar } from '~/features/star-cost/utils';
 import { ResourceInput } from '~/features/resource/components/ResourceInput';
 import { ResourceGoal } from '~/features/resource/components/ResourceGoal';
 
@@ -30,6 +31,7 @@ export async function action({ request }: ActionFunctionArgs) {
   const starFragments = String(body.get('starFragments'));
   const scrapyardV2 = Number(body.get('scrapyardV2'));
   const targetStar = Number(body.get('targetStar'));
+  const reducedStarCost = Number(body.get('achievements.reducedStarCost'));
 
   const response = await updateData({
     stars,
@@ -39,6 +41,9 @@ export async function action({ request }: ActionFunctionArgs) {
       magnets,
       goldenScraps,
       starFragments,
+    },
+    achievements: {
+      reducedStarCost,
     },
   });
 
@@ -61,12 +66,16 @@ export default function StarCalculator() {
       : undefined;
   }
 
-  const progress = getStarUpgradeProgress({
+  const options = {
     currentStarLevel: data.stars,
     resources: data.resources,
     scrapyardLevel: data.scrapyardV2,
     targetStarLevel: data.targetStar,
-  });
+    achievements: data.achievements,
+  };
+
+  const progress = getStarUpgradeProgress(options);
+  const availableStar = findAvailableStar(options);
 
   return (
     <fetcher.Form ref={formRef} method="post" className="flex flex-col gap-6" onChange={handler}>
@@ -108,6 +117,13 @@ export default function StarCalculator() {
             name="scrapyardV2"
             error={getFormError('scrapyardV2')}
           />
+
+          <ResourceInput
+            defaultValue={data.achievements.reducedStarCost}
+            icon={<EmojiEventsIcon />}
+            name="achievements.reducedStarCost"
+            error={getFormError('achievements.reducedStarCost')}
+          />
         </div>
       </fieldset>
 
@@ -128,7 +144,20 @@ export default function StarCalculator() {
 
       <Divider />
 
-      <fieldset>
+      <div>
+        <Typography variant="h3" gutterBottom>Available</Typography>
+
+        <div className="flex flex-wrap gap-6">
+          <div className="flex flex-col gap-4 items-center px-4 py-3 border border-gray-700 rounded-md">
+            <StarIcon className="w-12" />
+            <span>{availableStar}</span>
+          </div>
+        </div>
+      </div>
+
+      <Divider />
+
+      <div>
         <Typography variant="h3" gutterBottom>Goal</Typography>
 
         <div className="flex flex-wrap gap-6">
@@ -153,7 +182,7 @@ export default function StarCalculator() {
             progress={progress?.starFragments.progress ?? 'N/A'}
           />
         </div>
-      </fieldset>
+      </div>
     </fetcher.Form>
   );
 }

@@ -6,7 +6,7 @@ import { calculateScrapyardModifier } from './calculateScrapyardModifier';
 const starCount = 10;
 
 export function calculateStarCost(options: CalculateStarCostOptions): CalculationResults {
-  const { currentStarLevel, targetStarLevel, scrapyardLevel } = options;
+  const { currentStarLevel, targetStarLevel, scrapyardLevel, reducedStarCost } = options;
 
   const scrapyardMul = calculateScrapyardModifier(scrapyardLevel);
   let goldenScrapCost = 0;
@@ -20,9 +20,9 @@ export function calculateStarCost(options: CalculateStarCostOptions): Calculatio
   }
 
   return {
-    goldenScraps: goldenScrapCost * starCount,
-    magnets: magnetCost * starCount,
-    starFragments: starFragmentCost * starCount,
+    goldenScraps: goldenScrapCost * starCount * (1 - reducedStarCost),
+    magnets: magnetCost * starCount * (1 - reducedStarCost),
+    starFragments: starFragmentCost * starCount * (1 - reducedStarCost),
   };
 }
 
@@ -30,6 +30,7 @@ export interface CalculateStarCostOptions {
   currentStarLevel: number;
   targetStarLevel: number;
   scrapyardLevel: number;
+  reducedStarCost: number;
 }
 
 export interface CalculationResults {

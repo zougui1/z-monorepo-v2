@@ -16,6 +16,10 @@ export const updateData = async (partialData: PartialDeep<Data>): Promise<Data |
       ...currentData.resources,
       ...partialData?.resources,
     },
+    achievements: {
+      ...currentData.achievements,
+      ...partialData?.achievements,
+    },
   });
 
   if (!data.success) {

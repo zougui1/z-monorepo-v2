@@ -22,6 +22,9 @@ export const dataSchema = zod.object({
     wrenches: zod.number().min(0).int(),
     ironScraps: zod.number().min(0).int(),
   }),
+  achievements: zod.object({
+    reducedStarCost: zod.number().min(0).int().default(0),
+  }).default({}),
 }).refine(data => {
   return data.targetStar > data.stars;
 }, {

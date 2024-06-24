@@ -47,4 +47,5 @@ export interface ResourceInputProps {
   error?: string;
   className?: string;
   type?: BaseTextFieldProps['type'];
+  disabled?: boolean;
 }
