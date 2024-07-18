@@ -25,6 +25,11 @@ export const irradianceSheath = {
   image: `${dir}/IrradianceSheath.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const kaiken = {

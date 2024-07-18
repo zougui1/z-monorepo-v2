@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { useFetcher, useSearchParams } from '@remix-run/react';
-import { IconButton, InputAdornment, RadioGroup, TextField } from '@mui/material';
+import { FormControl, FormLabel, IconButton, InputAdornment, RadioGroup, TextField } from '@mui/material';
 import { useDebouncedCallback } from 'use-debounce';
 import { Close as CloseIcon } from '@mui/icons-material';
 
@@ -63,6 +63,20 @@ export const Filters = ({ }: FiltersProps) => {
           <LabelledRadio label="Incomplete" value="no" />
           <LabelledRadio label="All" value="all" />
         </RadioGroup>
+
+        <FormControl>
+          <FormLabel id="forgeMaterial-filter">Forge Material</FormLabel>
+
+          <RadioGroup
+            row
+            aria-labelledby="forgeMaterial-filter"
+            name="forgeMaterial"
+            defaultValue={searchParams.get('forgeMaterial') || 'all'}
+          >
+            <LabelledRadio label="Red" value="red" />
+            <LabelledRadio label="All" value="all" />
+          </RadioGroup>
+        </FormControl>
       </fetchers.Form>
     </SideSection>
   )

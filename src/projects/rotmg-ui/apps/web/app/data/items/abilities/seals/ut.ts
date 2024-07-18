@@ -16,6 +16,11 @@ export const marbleSeal = {
   image: `${dir}/MarbleSeal.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const sandstoneSeal = {

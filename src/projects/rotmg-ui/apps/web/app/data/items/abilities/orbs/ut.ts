@@ -70,6 +70,11 @@ export const primalArcana = {
   image: `${dir}/PrimalArcana.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const primalArcanaRehearsal = {

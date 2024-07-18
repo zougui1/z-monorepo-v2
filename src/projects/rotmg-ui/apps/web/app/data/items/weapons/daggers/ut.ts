@@ -25,6 +25,11 @@ export const avarice = {
   image: `${dir}/Avarice.png`,
   enchantable: true,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const boneDagger = {
@@ -52,6 +57,11 @@ export const chainDagger = {
   image: `${dir}/ChainDagger.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const chickenLegOfDoom = {
@@ -223,6 +233,11 @@ export const queensStinger = {
   image: `${dir}/QueensStinger.png`,
   enchantable: true,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const spatulaDagger = {

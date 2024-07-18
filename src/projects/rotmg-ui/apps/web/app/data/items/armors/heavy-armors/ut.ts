@@ -34,6 +34,11 @@ export const breastplateOfNewLife = {
   image: `${dir}/BreastplateOfNewLife.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const candyCoatedArmor = {
@@ -97,6 +102,11 @@ export const fungalBreastplate = {
   image: `${dir}/FungalBreastplate.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const gladiatorGuard = {
@@ -106,6 +116,11 @@ export const gladiatorGuard = {
   image: `${dir}/GladiatorGuard.png`,
   enchantable: true,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const heavyConstructionVest = {
@@ -151,6 +166,11 @@ export const royalGuardsCuirass = {
   image: `${dir}/RoyalGuardsCuirass.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const royalGuardsCuirassRehearsal = {

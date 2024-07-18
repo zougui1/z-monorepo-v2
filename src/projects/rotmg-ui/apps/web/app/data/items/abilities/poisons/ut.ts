@@ -70,6 +70,11 @@ export const polarityPoison = {
   image: `${dir}/PolarityPoison.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const polarityPoisonRehearsal = {

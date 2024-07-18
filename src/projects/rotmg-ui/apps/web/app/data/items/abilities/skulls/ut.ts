@@ -7,6 +7,11 @@ export const brainCube = {
   image: `${dir}/BrainCube.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const crackedCrystalSkull = {
@@ -61,6 +66,11 @@ export const skullOfCorruptedSouls = {
   image: `${dir}/SkullOfCorruptedSouls.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const skullOfEndlessTorment = {

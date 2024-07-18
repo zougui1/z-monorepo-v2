@@ -58,7 +58,13 @@ export async function action({ request }: ActionFunctionArgs) {
   return null;
 }
 
-const filterItemSections = (itemSections: ItemSection[], hoard: Hoard, filters: { complete: FilterTernary; search: string; }): (ItemSection & { allItems: Item[] })[] => {
+export interface HoardFilters {
+  complete: FilterTernary;
+  search: string | null;
+  forgeMaterial: 'red' | 'all';
+}
+
+const filterItemSections = (itemSections: ItemSection[], hoard: Hoard, filters: HoardFilters): (ItemSection & { allItems: Item[] })[] => {
   const sections = itemSections.map(section => {
     const filteredItems = section.items
       .filter(item => {
@@ -99,6 +105,14 @@ const filterItemSections = (itemSections: ItemSection[], hoard: Hoard, filters: 
         return !hoard[item.id]?.slots.every(Boolean);
       })
       .filter(item => {
+        const filterByMaterial: Record<HoardFilters['forgeMaterial'], boolean | undefined> = {
+          all: true,
+          red: item.forge?.materials.red,
+        };
+
+        return filterByMaterial[filters.forgeMaterial];
+      })
+      .filter(item => {
         if(!filters.search) {
           return true;
         }
@@ -128,6 +142,7 @@ export default function Hoard() {
 
   const filters = React.useMemo(() => ({
     complete: searchParams.get('complete') || 'all',
+    forgeMaterial: searchParams.get('forgeMaterial') || 'all',
     search: searchParams.get('search'),
   }), [searchParams]);
 

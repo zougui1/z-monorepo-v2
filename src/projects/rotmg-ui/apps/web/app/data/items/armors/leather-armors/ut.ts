@@ -7,6 +7,11 @@ export const armorOfNil = {
   image: `${dir}/ArmorOfNil.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const aspirantsHide = {
@@ -34,6 +39,11 @@ export const centaursShielding = {
   image: `${dir}/CentaursShielding.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const cheaterLightArmor = {
@@ -196,6 +206,11 @@ export const turncoatCape = {
   image: `${dir}/TurncoatCape.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const vestOfAbandonedShadows = {
@@ -205,6 +220,11 @@ export const vestOfAbandonedShadows = {
   image: `${dir}/VestOfAbandonedShadows.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const vestOfAbandonedShadowsRehearsal = {

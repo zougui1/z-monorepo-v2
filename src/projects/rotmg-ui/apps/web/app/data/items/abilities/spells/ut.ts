@@ -16,6 +16,11 @@ export const genesisSpell = {
   image: `${dir}/GenesisSpell.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const jadeStorm = {
@@ -79,6 +84,11 @@ export const sporousSpraySpell = {
   image: `${dir}/SporousSpraySpell.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const tabletOfTheKingsAvatar = {

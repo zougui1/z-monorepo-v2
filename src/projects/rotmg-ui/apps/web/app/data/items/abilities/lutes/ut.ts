@@ -34,6 +34,11 @@ export const nobleMandolin = {
   image: `${dir}/NobleMandolin.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const nobleMandolinRehearsal = {

@@ -16,6 +16,11 @@ export const fractalBlades = {
   image: `${dir}/FractalBlades.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const frostbiteBlades = {

@@ -24,6 +24,11 @@ export interface Item {
   defaultEnchanted?: boolean;
   shiny?: boolean;
   count?: number;
+  forge?: {
+    materials: {
+      red: boolean;
+    };
+  };
 }
 
 export interface ItemSection {

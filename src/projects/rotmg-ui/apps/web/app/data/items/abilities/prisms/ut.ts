@@ -7,6 +7,11 @@ export const echoesPrism = {
   image: `${dir}/EchoesPrism.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const foolsPrism = {
@@ -25,6 +30,11 @@ export const gamblersFate = {
   image: `${dir}/GamblersFate.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const ghostlyPrism = {

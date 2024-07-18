@@ -34,6 +34,11 @@ export const diplomaticRobe = {
   image: `${dir}/DiplomaticRobe.png`,
   enchantable: true,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const esbensShamanAttire = {
@@ -97,6 +102,11 @@ export const mantleOfTheMonarchy = {
   image: `${dir}/MantleOfTheMonarchy.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const mantleOfTheMonarchyRehearsal = {
@@ -124,6 +134,11 @@ export const ritualRobe = {
   image: `${dir}/RitualRobe.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const robeOfDarkSummoning = {
@@ -178,6 +193,11 @@ export const vestureOfDuality = {
   image: `${dir}/VestureOfDuality.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const wanderersCape = {

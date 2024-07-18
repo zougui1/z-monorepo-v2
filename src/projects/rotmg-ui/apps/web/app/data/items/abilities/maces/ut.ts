@@ -25,6 +25,11 @@ export const hivemindMace = {
   image: `${dir}/HivemindMace.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const incubationMace = {
@@ -88,6 +93,11 @@ export const peacekeeper = {
   image: `${dir}/Peacekeeper.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const peacekeeperRehearsal = {

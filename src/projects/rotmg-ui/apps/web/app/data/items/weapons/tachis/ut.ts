@@ -34,6 +34,11 @@ export const burialBlades = {
   image: `${dir}/BurialBlades.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const herosTachi = {

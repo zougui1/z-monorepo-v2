@@ -7,6 +7,11 @@ export const ballisticStar = {
   image: `${dir}/BallisticStar.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const cloverStar = {
@@ -79,6 +84,11 @@ export const starOfEnlightenment = {
   image: `${dir}/StarOfEnlightenment.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const unshuriken = {

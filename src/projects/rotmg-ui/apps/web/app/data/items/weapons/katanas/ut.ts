@@ -106,6 +106,11 @@ export const enforcer = {
   image: `${dir}/Enforcer.png`,
   enchantable: true,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const fireBlade = {
@@ -223,6 +228,11 @@ export const valor = {
   image: `${dir}/Valor.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const valorRehearsal = {

@@ -52,6 +52,11 @@ export const scepterOfRust = {
   image: `${dir}/ScepterOfRust.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const scepterOfSainthood = {

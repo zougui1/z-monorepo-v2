@@ -79,6 +79,11 @@ export const bowOfTheVoid = {
   image: `${dir}/BowOfTheVoid.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const brambleBow = {
@@ -286,6 +291,11 @@ export const warmonger = {
   image: `${dir}/Warmonger.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const warmongerRehearsal = {

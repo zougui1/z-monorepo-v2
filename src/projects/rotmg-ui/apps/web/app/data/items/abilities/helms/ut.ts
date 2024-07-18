@@ -61,6 +61,11 @@ export const hivemasterHelm = {
   image: `${dir}/HivemasterHelm.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const pathfindersHelm = {
@@ -88,6 +93,11 @@ export const vanguardsVisage = {
   image: `${dir}/VanguardsVisage.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const vanguardsVisageRehearsal = {

@@ -88,6 +88,11 @@ export const divinity = {
   image: `${dir}/Divinity.png`,
   enchantable: true,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const doctorSwordsworth = {
@@ -223,6 +228,11 @@ export const swordOfTheColossus = {
   image: `${dir}/SwordOfTheColossus.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const swordOfTheRainbowsEnd = {

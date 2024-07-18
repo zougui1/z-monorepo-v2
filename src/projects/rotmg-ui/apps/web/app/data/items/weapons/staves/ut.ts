@@ -232,6 +232,11 @@ export const staffOfUnholySacrifice = {
   image: `${dir}/StaffOfUnholySacrifice.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const staffOfYuletideCarols = {
@@ -250,6 +255,11 @@ export const superior = {
   image: `${dir}/Superior.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const tezcacoatlsTail = {

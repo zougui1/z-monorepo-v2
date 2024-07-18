@@ -16,6 +16,11 @@ export const crystallizedWormSpellblade = {
   image: `${dir}/CrystallizedWormSpellblade.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const herosSpellblade = {
@@ -70,4 +75,9 @@ export const steamPipe = {
   image: `${dir}/SteamPipe.png`,
   enchantable: true,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };

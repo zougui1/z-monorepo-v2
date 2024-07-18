@@ -16,6 +16,11 @@ export const beekeepersFlamethrower = {
   image: `${dir}/BeekeepersFlamethrower.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const chocolateOvipositor = {

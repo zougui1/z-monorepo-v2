@@ -34,6 +34,11 @@ export const cloakOfRefraction = {
   image: `${dir}/CloakOfRefraction.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const cloakOfTheDarkenedSun = {

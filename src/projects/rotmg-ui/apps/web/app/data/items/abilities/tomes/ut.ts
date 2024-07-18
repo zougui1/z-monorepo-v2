@@ -16,6 +16,11 @@ export const chaoticScripture = {
   image: `${dir}/ChaoticScripture.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const nativityTome = {
@@ -106,6 +111,11 @@ export const tomeOfTheMushroomTribes = {
   image: `${dir}/TomeOfTheMushroomTribes.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const tomeOfTheTarnishedGods = {

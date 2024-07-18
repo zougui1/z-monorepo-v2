@@ -16,6 +16,11 @@ export const caveDwellerTrap = {
   image: `${dir}/CaveDwellerTrap.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const coralVenomTrap = {

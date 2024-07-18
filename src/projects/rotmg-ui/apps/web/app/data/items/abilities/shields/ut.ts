@@ -16,6 +16,11 @@ export const crystalShield = {
   image: `${dir}/CrystalShield.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const dragonSlayer = {
@@ -34,6 +39,11 @@ export const kogboldCowerShield = {
   image: `${dir}/KogboldCowerShield.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const oryxsEscutcheon = {
@@ -43,6 +53,11 @@ export const oryxsEscutcheon = {
   image: `${dir}/OryxsEscutcheon.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const resoundingShield = {

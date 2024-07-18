@@ -97,6 +97,11 @@ export const quiverOfTheShadows = {
   image: `${dir}/QuiverOfTheShadows.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const quiverOfThunder = {

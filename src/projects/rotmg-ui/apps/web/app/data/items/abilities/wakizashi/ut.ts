@@ -16,6 +16,11 @@ export const fracturedGemstoneWakizashi = {
   image: `${dir}/FracturedGemstoneWakizashi.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const kogboldMultitool = {
@@ -70,6 +75,11 @@ export const sentinelsSidearm = {
   image: `${dir}/SentinelsSidearm.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const sentinelsSidearmRehearsal = {

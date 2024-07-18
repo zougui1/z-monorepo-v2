@@ -52,6 +52,11 @@ export const duskyCatalyst = {
   image: `${dir}/DuskyCatalyst.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const duskyCatalystRehearsal = {
@@ -106,6 +111,11 @@ export const laserPointer = {
   image: `${dir}/LaserPointer.png`,
   enchantable: true,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const lethargicSentience = {
@@ -124,6 +134,11 @@ export const lumiaire = {
   image: `${dir}/Lumiaire.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const measuringWand = {

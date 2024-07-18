@@ -70,6 +70,11 @@ export const battalionBanner = {
   image: `${dir}/BattalionBanner.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const bloodshedRing = {
@@ -79,6 +84,11 @@ export const bloodshedRing = {
   image: `${dir}/BloodshedRing.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const bracerOfTheGuardian = {
@@ -88,6 +98,11 @@ export const bracerOfTheGuardian = {
   image: `${dir}/BracerOfTheGuardian.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const bracerOfTheGuardianRehearsal = {
@@ -142,6 +157,11 @@ export const chancellorsCranium = {
   image: `${dir}/ChancellorsCranium.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const chrysalisOfEternity = {
@@ -160,6 +180,11 @@ export const collectorsMonocle = {
   image: `${dir}/CollectorsMonocle.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const coralRing = {
@@ -241,6 +266,11 @@ export const crystallisedMist = {
   image: `${dir}/CrystallisedMist.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const divineCoronation = {
@@ -250,6 +280,11 @@ export const divineCoronation = {
   image: `${dir}/DivineCoronation.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const eye = {
@@ -304,6 +339,11 @@ export const exaltedGodsHorn = {
   image: `${dir}/ExaltedGodsHorn.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const experimentalRing = {
@@ -421,6 +461,11 @@ export const magicalLodestone = {
   image: `${dir}/MagicalLodestone.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const maskOfAnubis = {
@@ -466,6 +511,11 @@ export const omnipotenceRing = {
   image: `${dir}/OmnipotenceRing.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const ornamentsOfUnity = {
@@ -511,6 +561,11 @@ export const overclockingAmulet = {
   image: `${dir}/OverclockingAmulet.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const ringOfDecades = {
@@ -646,6 +701,11 @@ export const sourcestone = {
   image: `${dir}/Sourcestone.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const spidersEyeRing = {
@@ -673,6 +733,11 @@ export const theForgottenCrown = {
   image: `${dir}/TheForgottenCrown.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const theForgottenCrownRehearsal = {
@@ -700,6 +765,11 @@ export const theTwilightGemstone = {
   image: `${dir}/TheTwilightGemstone.png`,
   enchantable: false,
   defaultEnchanted: false,
+  forge: {
+    materials: {
+      red: true,
+    },
+  },
 };
 
 export const theTwilightGemstoneRehearsal = {
