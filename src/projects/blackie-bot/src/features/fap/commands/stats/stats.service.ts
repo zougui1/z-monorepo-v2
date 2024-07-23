@@ -7,8 +7,8 @@ import { FapContentType } from '../../FapContentType';
 import { DateTime } from 'luxon';
 
 const formatDuration = (milliseconds: number): string => {
-  // removes milliseconds from the results
-  const roundedMilliseconds = Math.round(milliseconds / 1000) * 1000;
+  // removes seconds from the results
+  const roundedMilliseconds = Math.round(milliseconds / 60_000) * 60_000;
   return MS.toString(roundedMilliseconds, { format: 'verbose' });
 }
 
