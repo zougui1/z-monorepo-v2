@@ -90,7 +90,7 @@ export class FapQuery {
             $min: '$faps.duration'
           },
           longest: {
-            $min: '$faps.duration'
+            $max: '$faps.duration'
           },
           total: {
             $sum: '$faps.duration'

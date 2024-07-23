@@ -22,7 +22,7 @@ export class EndService extends FapService {
     const endTimestamp = options.endDate.toMillis();
 
     return {
-      duration: MS.toString(endTimestamp - startTimestamp, { format: 'long' }),
+      duration: MS.toString(endTimestamp - startTimestamp, { format: 'verbose' }),
       content: options.content || unfinishedFap.content,
     };
   }
