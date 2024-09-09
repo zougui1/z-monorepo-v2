@@ -78,9 +78,9 @@ export default function StarCalculator() {
   const availableStar = findAvailableStar(options);
 
   return (
-    <fetcher.Form ref={formRef} method="post" className="flex flex-col gap-6" onChange={handler}>
+    <fetcher.Form ref={formRef} method="post" className="flex flex-col gap-4" onChange={handler}>
       <fieldset>
-        <Typography variant="h3" gutterBottom>Current</Typography>
+        <Typography variant="h4" gutterBottom>Current</Typography>
 
         <div className="flex flex-wrap gap-3">
           <ResourceInput
@@ -129,28 +129,29 @@ export default function StarCalculator() {
 
       <Divider />
 
-      <fieldset>
-        <Typography variant="h3" gutterBottom>Target</Typography>
+      <div className="flex flex-col gap-2">
+        <fieldset className="flex items-center gap-6">
+          <Typography variant="h6">Target</Typography>
 
-        <div>
-          <ResourceInput
-            defaultValue={data.targetStar}
-            icon={<StarIcon />}
-            name="targetStar"
-            error={getFormError('targetStar')}
-          />
-        </div>
-      </fieldset>
+          <div>
+            <ResourceInput
+              defaultValue={data.targetStar}
+              icon={<StarIcon />}
+              name="targetStar"
+              error={getFormError('targetStar')}
+            />
+          </div>
+        </fieldset>
 
-      <Divider />
+        <div className="flex items-center gap-6">
+          <Typography variant="h6">Available</Typography>
 
-      <div>
-        <Typography variant="h3" gutterBottom>Available</Typography>
-
-        <div className="flex flex-wrap gap-6">
-          <div className="flex flex-col gap-4 items-center px-4 py-3 border border-gray-700 rounded-md">
-            <StarIcon className="w-12" />
-            <span>{availableStar}</span>
+          <div>
+            <ResourceInput
+              defaultValue={availableStar}
+              icon={<StarIcon />}
+              readOnly
+            />
           </div>
         </div>
       </div>
@@ -158,29 +159,35 @@ export default function StarCalculator() {
       <Divider />
 
       <div>
-        <Typography variant="h3" gutterBottom>Goal</Typography>
+        <Typography variant="h4" gutterBottom>Goal</Typography>
 
-        <div className="flex flex-wrap gap-6">
-          <ResourceGoal
-            icon={<GoldenScrapIcon />}
-            amount={progress?.goldenScraps.goal ?? 'N/A'}
-            remaining={progress?.goldenScraps.remaining ?? 'N/A'}
-            progress={progress?.goldenScraps.progress ?? 'N/A'}
-          />
+        <div className="flex flex-wrap gap-2 md:gap-4">
+          <div>
+            <ResourceGoal
+              icon={<GoldenScrapIcon />}
+              amount={progress?.goldenScraps.goal ?? 'N/A'}
+              remaining={progress?.goldenScraps.remaining ?? 'N/A'}
+              progress={progress?.goldenScraps.progress ?? 'N/A'}
+            />
+          </div>
 
-          <ResourceGoal
-            icon={<MagnetIcon />}
-            amount={progress?.magnets.goal ?? 'N/A'}
-            remaining={progress?.magnets.remaining ?? 'N/A'}
-            progress={progress?.magnets.progress ?? 'N/A'}
-          />
+          <div>
+            <ResourceGoal
+              icon={<MagnetIcon />}
+              amount={progress?.magnets.goal ?? 'N/A'}
+              remaining={progress?.magnets.remaining ?? 'N/A'}
+              progress={progress?.magnets.progress ?? 'N/A'}
+            />
+          </div>
 
-          <ResourceGoal
-            icon={<StarFragmentIcon />}
-            amount={progress?.starFragments.goal ?? 'N/A'}
-            remaining={progress?.starFragments.remaining ?? 'N/A'}
-            progress={progress?.starFragments.progress ?? 'N/A'}
-          />
+          <div>
+            <ResourceGoal
+              icon={<StarFragmentIcon />}
+              amount={progress?.starFragments.goal ?? 'N/A'}
+              remaining={progress?.starFragments.remaining ?? 'N/A'}
+              progress={progress?.starFragments.progress ?? 'N/A'}
+            />
+          </div>
         </div>
       </div>
     </fetcher.Form>

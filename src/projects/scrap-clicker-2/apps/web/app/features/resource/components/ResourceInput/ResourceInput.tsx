@@ -6,7 +6,7 @@ import { getIsScientificNumber } from '~/utils/number';
 
 import './ResourceInput.css';
 
-export function ResourceInput({ defaultValue, value, icon, endAdornment, onChange, error, className, ...rest }: ResourceInputProps) {
+export function ResourceInput({ defaultValue, value, icon, endAdornment, onChange, error, className, readOnly, ...rest }: ResourceInputProps) {
   const valueToValidate = value ?? defaultValue;
   const valueIsNumber = isNumber(Number(valueToValidate)) || getIsScientificNumber(String(valueToValidate));
 
@@ -20,6 +20,7 @@ export function ResourceInput({ defaultValue, value, icon, endAdornment, onChang
       error={Boolean(error) || !valueIsNumber}
       helperText={error || (!valueIsNumber && 'Invalid number')}
       InputProps={{
+        readOnly,
         startAdornment: icon && (
           <InputAdornment position="start" className="w-16">
             {icon}
@@ -48,4 +49,5 @@ export interface ResourceInputProps {
   className?: string;
   type?: BaseTextFieldProps['type'];
   disabled?: boolean;
+  readOnly?: boolean;
 }

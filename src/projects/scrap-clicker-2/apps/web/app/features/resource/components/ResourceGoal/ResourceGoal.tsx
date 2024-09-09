@@ -1,9 +1,12 @@
 export const ResourceGoal = ({ icon, amount, remaining, progress }: ResourceGoalProps) => {
   return (
-    <article style={{ minWidth: 190 }} className="flex flex-col gap-4 items-center px-4 py-3 border border-gray-700 rounded-md">
-      <div className="w-16">{icon}</div>
+    <article
+      style={{ maxWidth: 145 }}
+      className="flex flex-col gap-2 items-center px-4 py-3 border border-gray-700 rounded-md"
+    >
+      <div className="w-8 md:w-10">{icon}</div>
 
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full text-xs md:text-md">
         <span>Amount: {amount}</span>
         <span>Remaining: {remaining}</span>
         <span>Progress: {progress}</span>
