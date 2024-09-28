@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Waterfall",
+    "villagers": [
+      {
+        "name": "Rufus",
+        "dialog": {
+          "type": "text",
+          "text": "Welcome to Waterfall!"
+        }
+      }
+    ],
+    "buildings": [
+      {
+        "name": "House",
+        "villagers": [
+          {
+            "name": "Robert",
+            "dialog": {
+              "type": "text",
+              "text": "What are you doing in my house? Get out of here!"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Gem Shop",
+        "villagers": [
+          {
+            "name": "Gem Merchant",
+            "dialog": {
+              "type": "text",
+              "text": "What can I do for you?"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

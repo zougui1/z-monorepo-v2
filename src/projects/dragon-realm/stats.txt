@@ -1,0 +1,110 @@
+- Scaled Dragon:
+  - hp: 16-21
+  - mp: 0
+  - strength: 4-6
+  - sharpness: 3-4
+  - resilience: 4-6
+  - agility: 1-3
+  - deftness: 1-2
+  - magicalMight: 0
+  - magicalMending: 0
+- Furred Dragon:
+  - hp: 14-19
+  - mp: 0
+  - strength: 3-5
+  - sharpness: 4-6
+  - resilience: 3-4
+  - agility: 2-5
+  - deftness: 1-2
+  - magicalMight: 0
+  - magicalMending: 0
+- Wyvern:
+  - hp: 13-18
+  - mp: 0
+  - strength: 3-4
+  - sharpness: 3-4
+  - resilience: 3-4
+  - agility: 2-7
+  - deftness: 2-4
+  - magicalMight: 0
+  - magicalMending: 0
+- Hydra:
+  - hp: 17-22
+  - mp: 0
+  - strength: 5-8
+  - sharpness: 2-3
+  - resilience: 2-3
+  - agility: 1-3
+  - deftness: 1-2
+  - magicalMight: 0
+  - magicalMending: 0
+- Fire Dragon:
+  - hp: 12-16
+  - mp: 8-14
+  - strength: 3-4
+  - sharpness: 2-3
+  - resilience: 2-3
+  - agility: 1-4
+  - deftness: 1-2
+  - magicalMight: 4-6
+  - magicalMending: 3-4
+- Water Dragon:
+  - hp: 12-16
+  - mp: 8-13
+  - strength: 2-3
+  - sharpness: 2-3
+  - resilience: 2-3
+  - agility: 1-4
+  - deftness: 1-3
+  - magicalMight: 3-5
+  - magicalMending: 4-6
+- Air Dragon:
+  - hp: 12-16
+  - mp: 8-13
+  - strength: 2-3
+  - sharpness: 3-4
+  - resilience: 2-3
+  - agility: 2-5
+  - deftness: 1-2
+  - magicalMight: 3-4
+  - magicalMending: 3-5
+- Storm Dragon:
+  - hp: 12-16
+  - mp: 7-12
+  - strength: 2-3
+  - sharpness: 2-3
+  - resilience: 2-3
+  - agility: 1-4
+  - deftness: 2-3
+  - magicalMight: 5-7
+  - magicalMending: 0
+- Ice Dragon:
+  - hp: 13-18
+  - mp: 7-12
+  - strength: 3-4
+  - sharpness: 2-3
+  - resilience: 4-6
+  - agility: 1-3
+  - deftness: 1-2
+  - magicalMight: 3-5
+  - magicalMending: 0
+- Light Dragon:
+  - hp: 12-16
+  - mp: 8-13
+  - strength: 2-3
+  - sharpness: 2-3
+  - resilience: 2-3
+  - agility: 2-5
+  - deftness: 1-2
+  - magicalMight: 2-3
+  - magicalMending: 4-6
+- Shadow Dragon:
+  - hp: 12-16
+  - mp: 8-13
+  - strength: 3-4
+  - sharpness: 2-3
+  - resilience: 3-4
+  - agility: 1-4
+  - deftness: 1-3
+  - magicalMight: 3-5
+  - magicalMending: 0

@@ -1,0 +1,308 @@
+{
+  "Warrior": {
+    "hp": {
+      "min": 4,
+      "max": 6
+    },
+    "mp": {
+      "min": 0,
+      "max": 0
+    },
+    "strength": {
+      "min": 3,
+      "max": 4
+    },
+    "resilience": {
+      "min": 2,
+      "max": 4
+    },
+    "agility": {
+      "min": 1,
+      "max": 3
+    },
+    "deftness": {
+      "min": 1,
+      "max": 4
+    },
+    "magicalMight": {
+      "min": 0,
+      "max": 0
+    },
+    "magicalMending": {
+      "min": 0,
+      "max": 0
+    }
+  },
+  "Sharp": {
+    "hp": {
+      "min": 4,
+      "max": 6
+    },
+    "mp": {
+      "min": 0,
+      "max": 0
+    },
+    "strength": {
+      "min": 1,
+      "max": 4
+    },
+    "resilience": {
+      "min": 1,
+      "max": 3
+    },
+    "agility": {
+      "min": 3,
+      "max": 4
+    },
+    "deftness": {
+      "min": 2,
+      "max": 4
+    },
+    "magicalMight": {
+      "min": 0,
+      "max": 0
+    },
+    "magicalMending": {
+      "min": 0,
+      "max": 0
+    }
+  },
+  "Fire": {
+    "hp": {
+      "min": 2,
+      "max": 5
+    },
+    "mp": {
+      "min": 3,
+      "max": 5
+    },
+    "strength": {
+      "min": 1,
+      "max": 3
+    },
+    "resilience": {
+      "min": 1,
+      "max": 2
+    },
+    "agility": {
+      "min": 1,
+      "max": 2
+    },
+    "deftness": {
+      "min": 1,
+      "max": 4
+    },
+    "magicalMight": {
+      "min": 2,
+      "max": 4
+    },
+    "magicalMending": {
+      "min": 1,
+      "max": 2
+    }
+  },
+  "Water": {
+    "hp": {
+      "min": 2,
+      "max": 5
+    },
+    "mp": {
+      "min": 3,
+      "max": 5
+    },
+    "strength": {
+      "min": 1,
+      "max": 2
+    },
+    "resilience": {
+      "min": 1,
+      "max": 2
+    },
+    "agility": {
+      "min": 1,
+      "max": 3
+    },
+    "deftness": {
+      "min": 1,
+      "max": 3
+    },
+    "magicalMight": {
+      "min": 2,
+      "max": 3
+    },
+    "magicalMending": {
+      "min": 1,
+      "max": 3
+    }
+  },
+  "Air": {
+    "hp": {
+      "min": 2,
+      "max": 5
+    },
+    "mp": {
+      "min": 3,
+      "max": 5
+    },
+    "strength": {
+      "min": 1,
+      "max": 2
+    },
+    "resilience": {
+      "min": 1,
+      "max": 2
+    },
+    "agility": {
+      "min": 2,
+      "max": 3
+    },
+    "deftness": {
+      "min": 1,
+      "max": 4
+    },
+    "magicalMight": {
+      "min": 1,
+      "max": 3
+    },
+    "magicalMending": {
+      "min": 1,
+      "max": 3
+    }
+  },
+  "Lightning": {
+    "hp": {
+      "min": 2,
+      "max": 5
+    },
+    "mp": {
+      "min": 3,
+      "max": 5
+    },
+    "strength": {
+      "min": 1,
+      "max": 2
+    },
+    "resilience": {
+      "min": 1,
+      "max": 2
+    },
+    "agility": {
+      "min": 1,
+      "max": 3
+    },
+    "deftness": {
+      "min": 1,
+      "max": 3
+    },
+    "magicalMight": {
+      "min": 3,
+      "max": 5
+    },
+    "magicalMending": {
+      "min": 0,
+      "max": 0
+    }
+  },
+  "Ice": {
+    "hp": {
+      "min": 3,
+      "max": 5
+    },
+    "mp": {
+      "min": 2,
+      "max": 4
+    },
+    "strength": {
+      "min": 1,
+      "max": 2
+    },
+    "resilience": {
+      "min": 2,
+      "max": 4
+    },
+    "agility": {
+      "min": 1,
+      "max": 2
+    },
+    "deftness": {
+      "min": 1,
+      "max": 2
+    },
+    "magicalMight": {
+      "min": 1,
+      "max": 3
+    },
+    "magicalMending": {
+      "min": 0,
+      "max": 0
+    }
+  },
+  "Light": {
+    "hp": {
+      "min": 2,
+      "max": 5
+    },
+    "mp": {
+      "min": 3,
+      "max": 5
+    },
+    "strength": {
+      "min": 1,
+      "max": 2
+    },
+    "resilience": {
+      "min": 1,
+      "max": 2
+    },
+    "agility": {
+      "min": 2,
+      "max": 3
+    },
+    "deftness": {
+      "min": 1,
+      "max": 2
+    },
+    "magicalMight": {
+      "min": 1,
+      "max": 3
+    },
+    "magicalMending": {
+      "min": 2,
+      "max": 3
+    }
+  },
+  "Shadow": {
+    "hp": {
+      "min": 2,
+      "max": 5
+    },
+    "mp": {
+      "min": 3,
+      "max": 5
+    },
+    "strength": {
+      "min": 1,
+      "max": 3
+    },
+    "resilience": {
+      "min": 1,
+      "max": 3
+    },
+    "agility": {
+      "min": 1,
+      "max": 2
+    },
+    "deftness": {
+      "min": 1,
+      "max": 4
+    },
+    "magicalMight": {
+      "min": 2,
+      "max": 3
+    },
+    "magicalMending": {
+      "min": 0,
+      "max": 0
+    }
+  }
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "dragon-realm:slime",
+    "name": "Slime",
+    "picture": "https://picsum.photos/seed/2121211121/200/200",
+    "hp": 30,
+    "mp": 30,
+    "strength": 2,
+    "sharpness": 0,
+    "resilience": 1,
+    "agility": 2,
+    "deftness": 1,
+    "magicalMight": 0,
+    "magicalMending": 0,
+    "experience": 2,
+    "gold": 2,
+    "loots": []
+  }
+]

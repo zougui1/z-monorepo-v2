@@ -1,0 +1,244 @@
+{
+  "definitions": {
+    "hp": {
+      "base": {
+        "min": 12,
+        "max": 16
+      },
+      "affinity": {
+        "+1": "+10%",
+        "+2": "+20%",
+        "+3": "+30%",
+        "+4": "+40%",
+        "+5": "+50%"
+      }
+    },
+    "mp": {
+      "base": {
+        "min": 6,
+        "max": 10
+      },
+      "affinity": {
+        "+1": "+10%",
+        "+2": "+20%",
+        "+3": "+30%",
+        "+4": "+40%",
+        "+5": "+50%"
+      }
+    },
+    "strength": {
+      "base": {
+        "min": 2,
+        "max": 3
+      },
+      "affinity": {
+        "+1": "+30%",
+        "+2": "+60%",
+        "+3": "+100%",
+        "+4": "+125%",
+        "+5": "+150%"
+      }
+    },
+    "sharpness": {
+      "base": {
+        "min": 2,
+        "max": 3
+      },
+      "affinity": {
+        "+1": "+30%",
+        "+2": "+60%",
+        "+3": "+100%",
+        "+4": "+125%",
+        "+5": "+150%"
+      }
+    },
+    "resilience": {
+      "base": {
+        "min": 2,
+        "max": 3
+      },
+      "affinity": {
+        "+1": "+30%",
+        "+2": "+60%",
+        "+3": "+100%",
+        "+4": "+125%",
+        "+5": "+150%"
+      }
+    },
+    "agility": {
+      "base": {
+        "min": 1,
+        "max": 3
+      },
+      "affinity": {
+        "+1": "+30%",
+        "+2": "+60%",
+        "+3": "+100%",
+        "+4": "+125%",
+        "+5": "+150%"
+      }
+    },
+    "deftness": {
+      "base": {
+        "min": 1,
+        "max": 2
+      },
+      "affinity": {
+        "+1": "+30%",
+        "+2": "+60%",
+        "+3": "+100%",
+        "+4": "+125%",
+        "+5": "+150%"
+      }
+    },
+    "magicalMight": {
+      "base": {
+        "min": 2,
+        "max": 3
+      },
+      "affinity": {
+        "+1": "+30%",
+        "+2": "+60%",
+        "+3": "+100%",
+        "+4": "+125%",
+        "+5": "+150%"
+      }
+    },
+    "magicalMending": {
+      "base": {
+        "min": 2,
+        "max": 3
+      },
+      "affinity": {
+        "+1": "+30%",
+        "+2": "+60%",
+        "+3": "+100%",
+        "+4": "+125%",
+        "+5": "+150%"
+      }
+    }
+  },
+  "classes": {
+    "Scaled Dragon": {
+      "hp": "+3",
+      "mp": 0,
+      "strength": "+3",
+      "sharpness": "+1",
+      "resilience": "+3",
+      "agility": "base",
+      "deftness": "base",
+      "magicalMight": 0,
+      "magicalMending": 0
+    },
+    "Furred Dragon": {
+      "hp": "+2",
+      "mp": 0,
+      "strength": "+2",
+      "sharpness": "+3",
+      "resilience": "+1",
+      "agility": "+2",
+      "deftness": "base",
+      "magicalMight": 0,
+      "magicalMending": 0
+    },
+    "Wyvern": {
+      "hp": "+1",
+      "mp": 0,
+      "strength": "+1",
+      "sharpness": "+1",
+      "resilience": "+1",
+      "agility": "+4",
+      "deftness": "+3",
+      "magicalMight": 0,
+      "magicalMending": 0
+    },
+    "Hydra": {
+      "hp": "+4",
+      "mp": 0,
+      "strength": "+5",
+      "sharpness": "base",
+      "resilience": "base",
+      "agility": "base",
+      "deftness": "base",
+      "magicalMight": 0,
+      "magicalMending": 0
+    },
+    "Fire Dragon": {
+      "hp": "base",
+      "mp": "+4",
+      "strength": "+1",
+      "sharpness": "base",
+      "resilience": "base",
+      "agility": "+1",
+      "deftness": "base",
+      "magicalMight": "+3",
+      "magicalMending": "+1"
+    },
+    "Water Dragon": {
+      "hp": "base",
+      "mp": "+3",
+      "strength": "base",
+      "sharpness": "base",
+      "resilience": "base",
+      "agility": "+1",
+      "deftness": "+1",
+      "magicalMight": "+2",
+      "magicalMending": "+3"
+    },
+    "Air Dragon": {
+      "hp": "base",
+      "mp": "+3",
+      "strength": "base",
+      "sharpness": "+1",
+      "resilience": "base",
+      "agility": "+2",
+      "deftness": "base",
+      "magicalMight": "+1",
+      "magicalMending": "+2"
+    },
+    "Storm Dragon": {
+      "hp": "base",
+      "mp": "+2",
+      "strength": "base",
+      "sharpness": "base",
+      "resilience": "base",
+      "agility": "+1",
+      "deftness": "+2",
+      "magicalMight": "+4",
+      "magicalMending": 0
+    },
+    "Ice Dragon": {
+      "hp": "+1",
+      "mp": "+2",
+      "strength": "+1",
+      "sharpness": "base",
+      "resilience": "+3",
+      "agility": "base",
+      "deftness": "base",
+      "magicalMight": "+2",
+      "magicalMending": 0
+    },
+    "Light Dragon": {
+      "hp": "base",
+      "mp": "+3",
+      "strength": "base",
+      "sharpness": "base",
+      "resilience": "base",
+      "agility": "+2",
+      "deftness": "base",
+      "magicalMight": "base",
+      "magicalMending": "+3"
+    },
+    "Shadow Dragon": {
+      "hp": "base",
+      "mp": "+3",
+      "strength": "+1",
+      "sharpness": "base",
+      "resilience": "+1",
+      "agility": "+1",
+      "deftness": "+1",
+      "magicalMight": "+2",
+      "magicalMending": 0
+    }
+  }
+}
