@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useFetcher } from '@remix-run/react';
 import { Typography } from '@mui/material';
 
@@ -19,6 +19,11 @@ export const CharacterExaltations = ({ class: classData }: CharacterExaltationsP
   }, 500);
 
   const { SkinIcon } = classesData[classData.name];
+
+  useEffect(() => {
+    formRef.current?.scroll();
+    console.log(Boolean(formRef.current))
+  }, [classData.name])
 
   return (
     <fetcher.Form

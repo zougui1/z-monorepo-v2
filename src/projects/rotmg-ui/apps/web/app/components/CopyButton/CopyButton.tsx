@@ -1,6 +1,8 @@
 import { IconButton, type IconButtonProps } from '@mui/material';
 import { ContentCopy as ContentCopyIcon } from '@mui/icons-material';
 
+import { copyToClipboard } from '~/utils/copyToClipboard';
+
 export const CopyButton = ({ content, onClick, ...rest }: CopyButtonProps) => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     onClick?.(event);
@@ -10,7 +12,7 @@ export const CopyButton = ({ content, onClick, ...rest }: CopyButtonProps) => {
         ? content(event)
         : content;
 
-      navigator.clipboard.writeText(text);
+      copyToClipboard(text);
     }
   }
 

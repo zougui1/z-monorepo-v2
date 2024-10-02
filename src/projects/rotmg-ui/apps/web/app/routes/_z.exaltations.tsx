@@ -71,7 +71,7 @@ export default function Index() {
   const className = searchParams.get('className');
 
   return (
-    <div className="flex items-center gap-12 h-full">
+    <div className="flex flex-col lg:flex-row gap-12 h-full">
       <ul className="flex flex-col">
         {classOrdering.map(className => classesData[className]).map(classData => (
           <li
