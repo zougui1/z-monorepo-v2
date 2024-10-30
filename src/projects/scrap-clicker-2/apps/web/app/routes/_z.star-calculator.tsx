@@ -77,6 +77,18 @@ export default function StarCalculator() {
   const progress = getStarUpgradeProgress(options);
   const availableStar = findAvailableStar(options);
 
+  const getGoalColor = (progress: string | undefined): string | undefined => {
+    if (!progress) {
+      return;
+    }
+
+    if (progress === '100%') {
+      return 'border-green-700';
+    }
+
+    return 'border-red-800';
+  }
+
   return (
     <fetcher.Form ref={formRef} method="post" className="flex flex-col gap-4" onChange={handler}>
       <fieldset>
@@ -84,6 +96,7 @@ export default function StarCalculator() {
 
         <div className="flex flex-wrap gap-3">
           <ResourceInput
+            label="Stars"
             defaultValue={data.stars}
             icon={<StarIcon />}
             name="stars"
@@ -91,6 +104,7 @@ export default function StarCalculator() {
           />
 
           <ResourceInput
+            label="Magnets"
             defaultValue={data.resources.magnets}
             icon={<MagnetIcon />}
             name="magnets"
@@ -98,6 +112,7 @@ export default function StarCalculator() {
           />
 
           <ResourceInput
+            label="Golden scraps"
             defaultValue={data.resources.goldenScraps}
             icon={<GoldenScrapIcon />}
             name="goldenScraps"
@@ -105,6 +120,7 @@ export default function StarCalculator() {
           />
 
           <ResourceInput
+            label="Star fragments"
             defaultValue={data.resources.starFragments}
             icon={<StarFragmentIcon />}
             name="starFragments"
@@ -112,6 +128,7 @@ export default function StarCalculator() {
           />
 
           <ResourceInput
+            label="Scrapyard V2 level"
             defaultValue={data.scrapyardV2}
             icon={<ScrapyardV2Icon />}
             name="scrapyardV2"
@@ -119,6 +136,8 @@ export default function StarCalculator() {
           />
 
           <ResourceInput
+            label="Achievement level"
+            helperText="Affecting the star cost"
             defaultValue={data.achievements.reducedStarCost}
             icon={<EmojiEventsIcon />}
             name="achievements.reducedStarCost"
@@ -129,30 +148,24 @@ export default function StarCalculator() {
 
       <Divider />
 
-      <div className="flex flex-col gap-2">
-        <fieldset className="flex items-center gap-6">
-          <Typography variant="h6">Target</Typography>
-
-          <div>
-            <ResourceInput
-              defaultValue={data.targetStar}
-              icon={<StarIcon />}
-              name="targetStar"
-              error={getFormError('targetStar')}
-            />
-          </div>
+      <div className="flex gap-4">
+        <fieldset>
+          <ResourceInput
+            label="Target"
+            defaultValue={data.targetStar}
+            icon={<StarIcon />}
+            name="targetStar"
+            error={getFormError('targetStar')}
+          />
         </fieldset>
 
-        <div className="flex items-center gap-6">
-          <Typography variant="h6">Available</Typography>
-
-          <div>
-            <ResourceInput
-              defaultValue={availableStar}
-              icon={<StarIcon />}
-              readOnly
-            />
-          </div>
+        <div>
+          <ResourceInput
+            label="Available"
+            value={availableStar}
+            icon={<StarIcon />}
+            readOnly
+          />
         </div>
       </div>
 
@@ -168,6 +181,7 @@ export default function StarCalculator() {
               amount={progress?.goldenScraps.goal ?? 'N/A'}
               remaining={progress?.goldenScraps.remaining ?? 'N/A'}
               progress={progress?.goldenScraps.progress ?? 'N/A'}
+              className={getGoalColor(progress?.goldenScraps.progress)}
             />
           </div>
 
@@ -177,6 +191,7 @@ export default function StarCalculator() {
               amount={progress?.magnets.goal ?? 'N/A'}
               remaining={progress?.magnets.remaining ?? 'N/A'}
               progress={progress?.magnets.progress ?? 'N/A'}
+              className={getGoalColor(progress?.magnets.progress)}
             />
           </div>
 
@@ -186,6 +201,7 @@ export default function StarCalculator() {
               amount={progress?.starFragments.goal ?? 'N/A'}
               remaining={progress?.starFragments.remaining ?? 'N/A'}
               progress={progress?.starFragments.progress ?? 'N/A'}
+              className={getGoalColor(progress?.starFragments.progress)}
             />
           </div>
         </div>

@@ -1,8 +1,10 @@
-export const ResourceGoal = ({ icon, amount, remaining, progress }: ResourceGoalProps) => {
+import clsx from 'clsx';
+
+export const ResourceGoal = ({ icon, amount, remaining, progress, className }: ResourceGoalProps) => {
   return (
     <article
-      style={{ maxWidth: 145 }}
-      className="flex flex-col gap-2 items-center px-4 py-3 border border-gray-700 rounded-md"
+      style={{ minWidth: 145 }}
+      className={clsx('flex flex-col gap-2 items-center px-4 py-3 border border-gray-700 rounded-md', className)}
     >
       <div className="w-8 md:w-10">{icon}</div>
 
@@ -20,4 +22,5 @@ export interface ResourceGoalProps {
   amount: number | string;
   remaining: number | string;
   progress: string;
+  className?: string;
 }
