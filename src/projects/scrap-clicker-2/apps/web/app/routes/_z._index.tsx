@@ -10,7 +10,6 @@ import {
   GoldenScrapIcon,
   StarFragmentIcon,
   StarIcon,
-  BookIcon,
   ScrapyardV2Icon,
 } from '~/components/icons';
 
@@ -32,7 +31,6 @@ export async function action({ request }: ActionFunctionArgs) {
   const goldenScraps = String(body.get('goldenScraps'));
   const starFragments = String(body.get('starFragments'));
   const scrapyardV2 = Number(body.get('scrapyardV2'));
-  const books = Number(body.get('books'));
 
   const response = await updateData({
     stars,
@@ -41,7 +39,6 @@ export async function action({ request }: ActionFunctionArgs) {
       magnets,
       goldenScraps,
       starFragments,
-      books,
     },
   });
 
@@ -67,46 +64,39 @@ export default function Index() {
   return (
     <div>
       <fetcher.Form ref={formRef} method="post" className="flex flex-wrap gap-3" onChange={handler}>
-          <ResourceInput
-            defaultValue={data.stars}
-            icon={<StarIcon />}
-            name="stars"
-            error={getFormError('stars')}
-          />
-
-          <ResourceInput
-            defaultValue={data.resources.magnets}
-            icon={<MagnetIcon />}
-            name="magnets"
-            error={getFormError('magnets')}
-          />
-
-          <ResourceInput
-            defaultValue={data.resources.goldenScraps}
-            icon={<GoldenScrapIcon />}
-            name="goldenScraps"
-            error={getFormError('goldenScraps')}
-          />
-
-          <ResourceInput
-            defaultValue={data.resources.starFragments}
-            icon={<StarFragmentIcon />}
-            name="starFragments"
-            error={getFormError('starFragments')}
-          />
-
-          <ResourceInput
-            defaultValue={data.scrapyardV2}
-            icon={<ScrapyardV2Icon />}
-            name="scrapyardV2"
-            error={getFormError('scrapyardV2')}
-          />
+        <ResourceInput
+          defaultValue={data.stars}
+          icon={<StarIcon />}
+          name="stars"
+          error={getFormError('stars')}
+        />
 
         <ResourceInput
-            defaultValue={data.resources.books}
-            icon={<BookIcon />}
-            name="books"
-            error={getFormError('books')}
+          defaultValue={data.resources.magnets}
+          icon={<MagnetIcon />}
+          name="magnets"
+          error={getFormError('resources.magnets')}
+        />
+
+        <ResourceInput
+          defaultValue={data.resources.goldenScraps}
+          icon={<GoldenScrapIcon />}
+          name="goldenScraps"
+          error={getFormError('resources.goldenScraps')}
+        />
+
+        <ResourceInput
+          defaultValue={data.resources.starFragments}
+          icon={<StarFragmentIcon />}
+          name="starFragments"
+          error={getFormError('resources.starFragments')}
+        />
+
+        <ResourceInput
+          defaultValue={data.scrapyardV2}
+          icon={<ScrapyardV2Icon />}
+          name="scrapyardV2"
+          error={getFormError('scrapyardV2')}
         />
       </fetcher.Form>
     </div>

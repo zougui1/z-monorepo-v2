@@ -1,26 +1,20 @@
 import zod from 'zod';
+import { isNumber } from 'radash';
 
 import { getIsScientificNumber } from '~/utils/number';
 
+const checkResourceValue = (value: string): boolean => {
+  return isNumber(Number(value)) || getIsScientificNumber(value);
+}
+
 export const dataSchema = zod.object({
-  stars: zod.number().positive().int(),
+  stars: zod.number().min(0).int(),
   scrapyardV2: zod.number().min(0).int(),
   targetStar: zod.number().positive().int(),
-  bookLevel: zod.number().min(0).int(),
-  xpBookLevelRatio: zod.number().min(0).max(100),
   resources: zod.object({
-    goldenScraps: zod.string().refine(getIsScientificNumber),
-    magnets: zod.string().refine(getIsScientificNumber),
-    starFragments: zod.string().refine(getIsScientificNumber),
-    books: zod.number().min(0).int(),
-  }),
-  bookUpgrades: zod.object({
-    magnets: zod.number().min(0).int(),
-    goldenScraps: zod.number().min(0).int(),
-    starFragments: zod.number().min(0).int(),
-    xp: zod.number().min(0).int(),
-    wrenches: zod.number().min(0).int(),
-    ironScraps: zod.number().min(0).int(),
+    goldenScraps: zod.string().refine(checkResourceValue),
+    magnets: zod.string().refine(checkResourceValue),
+    starFragments: zod.string().refine(checkResourceValue),
   }),
   achievements: zod.object({
     reducedStarCost: zod.number().min(0).int().default(0),
