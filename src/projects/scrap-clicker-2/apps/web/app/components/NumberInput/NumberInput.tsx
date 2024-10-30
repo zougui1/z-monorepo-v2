@@ -5,7 +5,7 @@ import { InputAdornment } from '@mui/material';
 import { useForkRef } from '~/hooks';
 
 import { TooltipTextField, type TooltipTextFieldProps } from '../TooltipTextField';
-import { NumberInputArrows, type NumberInputArrowsProps } from '../NumberInputArrows';
+import { NumberInputArrows } from '../NumberInputArrows';
 
 const getErrorProps = (invalidNumberErrorAsTooltip?: boolean): TooltipTextFieldProps => {
   const errorMessage = 'Invalid number';

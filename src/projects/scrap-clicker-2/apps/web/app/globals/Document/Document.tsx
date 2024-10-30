@@ -4,7 +4,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline } from '@mui/material';
 
 import { theme } from '~/theme';
 
