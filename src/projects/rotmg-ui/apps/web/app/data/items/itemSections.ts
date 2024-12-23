@@ -1336,7 +1336,7 @@ export const itemSections: ItemSection[] = [
     Icon: ItemIcons.oryxShards.ShardOfTheMadGod,
     label: 'Shard Of The Mad God',
     items: [
-      items.shards.ShardOfTheMadGod,
+      items.shards.shardOfTheMadGod,
       items.weapons.daggers.ut.bountyHuntersDagger,
       items.weapons.bows.ut.predatorBow,
       items.weapons.staves.ut.oppressorsStaff,
@@ -1349,7 +1349,7 @@ export const itemSections: ItemSection[] = [
     Icon: ItemIcons.oryxShards.ShardOfTheIntern,
     label: 'Shard Of The Intern',
     items: [
-      items.shards.ShardOfTheIntern,
+      items.shards.shardOfTheIntern,
       items.abilities.cloaks.ut.cloakOfTheDarkenedSun,
       items.abilities.quivers.ut.madJavelin,
       items.abilities.spells.ut.cursedSpireSpell,
@@ -1374,7 +1374,7 @@ export const itemSections: ItemSection[] = [
     Icon: ItemIcons.oryxShards.ShardOfTheDoorwarden,
     label: 'Shard Of The Doorwarden',
     items: [
-      items.shards.ShardOfTheDoorwarden,
+      items.shards.shardOfTheDoorwarden,
       items.armors.heavyArmors.ut.aegisArmor,
       items.armors.leatherArmors.ut.squadronSheathing,
       items.armors.robes.ut.judgesRobe,
@@ -1384,7 +1384,7 @@ export const itemSections: ItemSection[] = [
     Icon: ItemIcons.oryxShards.ShardOfTheAdvisor,
     label: 'Shard Of The Advisor',
     items: [
-      items.shards.ShardOfTheAdvisor,
+      items.shards.shardOfTheAdvisor,
       items.rings.st.mayhemMedallion,
       items.rings.st.ringOfWrath,
       items.rings.st.autarchAmulet,
