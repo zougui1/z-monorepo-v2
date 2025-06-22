@@ -26,15 +26,20 @@ export function findAvailableStar(options: FindAvailableStarOptions): number {
   const reducedStarCost = options.achievements.reducedStarCost * REDUCED_STAR_COST_PERCENT_PER_LEVEL;
   const max = options.currentStarLevel + starThreshold;
 
-  const scrapyardMul = calculateScrapyardModifier(options.scrapyardLevel);
+  const multipliers = {
+    scrapyard: calculateScrapyardModifier(options.scrapyardLevel),
+    achievement: Math.max(0, 1000 - Math.max(0, options.achievements.reducedStarCost * 2)),
+    masteryBoost: Math.pow(0.99, Math.floor(options.masteryBoostLevel / 10)),
+  };
+
   let goldenScrapCost = 0;
   let magnetCost = 0;
   let starFragmentCost = 0;
 
   for (let index = options.currentStarLevel; index < max; index++) {
-    goldenScrapCost += calculateGoldenScrapCost(index, scrapyardMul) * starCount * (1 - reducedStarCost);
-    magnetCost += calculateMagnetCost(index, scrapyardMul) * starCount * (1 - reducedStarCost);
-    starFragmentCost += calculateStarFragmentCost(index, scrapyardMul) * starCount * (1 - reducedStarCost);
+    goldenScrapCost += calculateGoldenScrapCost(index, multipliers) * starCount;
+    magnetCost += calculateMagnetCost(index, multipliers) * starCount;
+    starFragmentCost += calculateStarFragmentCost(index, multipliers) * starCount;
 
     if (
       currrentResources.goldenScraps < goldenScrapCost ||
@@ -52,6 +57,7 @@ export interface FindAvailableStarOptions {
   currentStarLevel: number;
   scrapyardLevel: number;
   targetStarLevel: number;
+  masteryBoostLevel: number;
   resources: {
     goldenScraps: string;
     magnets: string;
