@@ -19,6 +19,7 @@ export function ResourceInput({ defaultValue, helperText, value, icon, endAdornm
       className={clsx('resource-input', className)}
       error={Boolean(error) || !valueIsNumber}
       helperText={helperText || error || (!valueIsNumber && 'Invalid number')}
+      FormHelperTextProps={{ className: '!mx-1 !text-center' }}
       InputProps={{
         readOnly,
         startAdornment: icon && (

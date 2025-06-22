@@ -6,23 +6,28 @@ import { calculateScrapyardModifier } from './calculateScrapyardModifier';
 const starCount = 10;
 
 export function calculateStarCost(options: CalculateStarCostOptions): CalculationResults {
-  const { currentStarLevel, targetStarLevel, scrapyardLevel, reducedStarCost } = options;
+  const { currentStarLevel, targetStarLevel, scrapyardLevel, achievementLevel, masteryBoostLevel } = options;
 
-  const scrapyardMul = calculateScrapyardModifier(scrapyardLevel);
+  const multipliers = {
+    scrapyard: calculateScrapyardModifier(scrapyardLevel),
+    achievement: Math.max(0, 1000 - Math.max(0, achievementLevel * 2)),
+    masteryBoost: Math.pow(0.99, Math.floor(masteryBoostLevel / 10)),
+  };
+
   let goldenScrapCost = 0;
   let magnetCost = 0;
   let starFragmentCost = 0;
 
   for (let index = currentStarLevel; index < targetStarLevel; index++) {
-    goldenScrapCost += calculateGoldenScrapCost(index, scrapyardMul);
-    magnetCost += calculateMagnetCost(index, scrapyardMul);
-    starFragmentCost += calculateStarFragmentCost(index, scrapyardMul);
+    goldenScrapCost += calculateGoldenScrapCost(index, multipliers);
+    magnetCost += calculateMagnetCost(index, multipliers);
+    starFragmentCost += calculateStarFragmentCost(index, multipliers);
   }
 
   return {
-    goldenScraps: goldenScrapCost * starCount * (1 - reducedStarCost),
-    magnets: magnetCost * starCount * (1 - reducedStarCost),
-    starFragments: starFragmentCost * starCount * (1 - reducedStarCost),
+    goldenScraps: goldenScrapCost * starCount,
+    magnets: magnetCost * starCount,
+    starFragments: starFragmentCost * starCount,
   };
 }
 
@@ -30,7 +35,8 @@ export interface CalculateStarCostOptions {
   currentStarLevel: number;
   targetStarLevel: number;
   scrapyardLevel: number;
-  reducedStarCost: number;
+  achievementLevel: number;
+  masteryBoostLevel: number;
 }
 
 export interface CalculationResults {

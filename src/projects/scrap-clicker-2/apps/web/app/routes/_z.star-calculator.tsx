@@ -6,7 +6,7 @@ import { json, type MetaFunction, type ActionFunctionArgs } from '@remix-run/nod
 import { useDebouncedCallback } from 'use-debounce';
 
 import { getData, updateData, Data, ErrorResponse } from '~/api/data';
-import { MagnetIcon, GoldenScrapIcon, StarFragmentIcon, StarIcon, ScrapyardV2Icon } from '~/components/icons';
+import { MagnetIcon, GoldenScrapIcon, StarFragmentIcon, StarIcon, ScrapyardV2Icon, MasteryTokenIcon } from '~/components/icons';
 import { getStarUpgradeProgress, findAvailableStar } from '~/features/star-cost/utils';
 import { ResourceInput } from '~/features/resource/components/ResourceInput';
 import { ResourceGoal } from '~/features/resource/components/ResourceGoal';
@@ -32,11 +32,13 @@ export async function action({ request }: ActionFunctionArgs) {
   const scrapyardV2 = Number(body.get('scrapyardV2'));
   const targetStar = Number(body.get('targetStar'));
   const reducedStarCost = Number(body.get('achievements.reducedStarCost'));
+  const masteryBoostLevel = Number(body.get('masteryBoostLevel'));
 
   const response = await updateData({
     stars,
     scrapyardV2,
     targetStar,
+    masteryBoostLevel,
     resources: {
       magnets,
       goldenScraps,
@@ -72,6 +74,7 @@ export default function StarCalculator() {
     scrapyardLevel: data.scrapyardV2,
     targetStarLevel: data.targetStar,
     achievements: data.achievements,
+    masteryBoostLevel: data.masteryBoostLevel,
   };
 
   const progress = getStarUpgradeProgress(options);
@@ -94,7 +97,7 @@ export default function StarCalculator() {
       <fieldset>
         <Typography variant="h4" gutterBottom>Current</Typography>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-x-3">
           <ResourceInput
             label="Stars"
             defaultValue={data.stars}
@@ -142,6 +145,15 @@ export default function StarCalculator() {
             icon={<EmojiEventsIcon />}
             name="achievements.reducedStarCost"
             error={getFormError('achievements.reducedStarCost')}
+          />
+
+          <ResourceInput
+            label="Mastery 17+ barrels"
+            helperText="Affecting the star cost"
+            defaultValue={data.masteryBoostLevel}
+            icon={<MasteryTokenIcon />}
+            name="masteryBoostLevel"
+            error={getFormError('masteryBoostLevel')}
           />
         </div>
       </fieldset>

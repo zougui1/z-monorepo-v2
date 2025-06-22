@@ -5,6 +5,7 @@ import goldenScrap from '~/assets/images/GoldenScrap.png';
 import star from '~/assets/images/Star.png';
 import starFragment from '~/assets/images/StarFragment.png';
 import scrapyardV2 from '~/assets/images/ScrapyardV2.webp';
+import masteryToken from '~/assets/images/MasteryToken.webp';
 
 export const MagnetIcon = createImgIcon({
   src: magnet,
@@ -29,4 +30,9 @@ export const StarFragmentIcon = createImgIcon({
 export const ScrapyardV2Icon = createImgIcon({
   src: scrapyardV2,
   alt: 'Scrapyard V2',
+});
+
+export const MasteryTokenIcon = createImgIcon({
+  src: masteryToken,
+  alt: 'Mastery Token',
 });

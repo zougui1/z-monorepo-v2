@@ -5,7 +5,6 @@ import { formatNumber, toPercent, formatPercent } from '~/utils/number';
 import { calculateStarCost } from './calculateStarCost';
 
 const maxPercent = 100;
-const REDUCED_STAR_COST_PERCENT_PER_LEVEL = 0.001;
 
 export const getStarUpgradeProgress = (data: StarUpgradeData): StarUpgradeProgressResult | undefined => {
   const currrentResources = {
@@ -13,8 +12,6 @@ export const getStarUpgradeProgress = (data: StarUpgradeData): StarUpgradeProgre
     magnets: Number(data.resources.magnets),
     starFragments: Number(data.resources.starFragments),
   };
-
-  const reducedStarCost = data.achievements.reducedStarCost * REDUCED_STAR_COST_PERCENT_PER_LEVEL;
 
   if (
     !isNumber(currrentResources.goldenScraps) ||
@@ -28,7 +25,8 @@ export const getStarUpgradeProgress = (data: StarUpgradeData): StarUpgradeProgre
     currentStarLevel: data.currentStarLevel,
     scrapyardLevel: data.scrapyardLevel,
     targetStarLevel: data.targetStarLevel,
-    reducedStarCost,
+    achievementLevel: data.achievements.reducedStarCost,
+    masteryBoostLevel: data.masteryBoostLevel,
   });
 
   const remainingResources = {
@@ -76,6 +74,7 @@ export interface StarUpgradeData {
   achievements: {
     reducedStarCost: number;
   };
+  masteryBoostLevel: number;
 }
 
 export interface StarUpgradeProgressResult {

@@ -1,4 +1,6 @@
-export const calculateStarFragmentCost = (starLevel: number, scrapyardMul: number): number => {
+import { type Multipliers } from '../types';
+
+export const calculateStarFragmentCost = (starLevel: number, multipliers: Multipliers): number => {
   // adjust for first 10 stars
   let cost = 4 + (starLevel - 10);
 
@@ -35,5 +37,5 @@ export const calculateStarFragmentCost = (starLevel: number, scrapyardMul: numbe
   if (starLevel >= 910) cost *= 1.1;
   if (starLevel >= 1010) cost *= 1.1;
 
-  return Math.floor((cost * 100) / (scrapyardMul + 100));
+  return Math.floor((cost * 100) * multipliers.achievement * multipliers.masteryBoost / ((multipliers.scrapyard + 100) * 1000));
 }

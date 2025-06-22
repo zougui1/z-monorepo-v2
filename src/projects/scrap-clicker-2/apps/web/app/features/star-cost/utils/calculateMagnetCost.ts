@@ -1,4 +1,6 @@
-export const calculateMagnetCost = (starLevel: number, scrapyardMul: number): number => {
+import { type Multipliers } from '../types';
+
+export const calculateMagnetCost = (starLevel: number, multipliers: Multipliers): number => {
   // adjust for first 10 stars
   let cost = 250 * (starLevel - 10) + 1000;
 
@@ -72,22 +74,21 @@ export const calculateMagnetCost = (starLevel: number, scrapyardMul: number): nu
   if (starLevel >= 1090) cost *= 1.1;
   if (starLevel >= 1110) cost *= 1.3;
   if (starLevel >= 1120) cost *= 1.1;
-  if (starLevel >= 1130) cost *= 1.1;
+  if (starLevel >= 1160) cost *= 1.1;
   if (starLevel >= 1210) cost *= 1.3;
   if (starLevel >= 1260) cost *= 1.18;
   if (starLevel >= 1285) cost *= 1.18;
-  if (starLevel >= 1310) cost *= 1.36;
-  if (starLevel >= 1360) cost *= 1.36;
-  if (starLevel >= 1410) cost *= 1.37;
-  if (starLevel >= 1460) cost *= 1.37;
+  if (starLevel >= 1310) cost *= 1.34;
+  if (starLevel >= 1360) cost *= 1.34;
+  if (starLevel >= 1410) cost *= 1.34;
+  if (starLevel >= 1460) cost *= 1.34;
   if (starLevel >= 1510) cost *= 1.3;
   if (starLevel >= 1560) cost *= 1.269;
   if (starLevel >= 1610) cost *= 1.1;
   if (starLevel >= 1660) cost *= 1.1;
   if (starLevel >= 1710) cost *= 1.3;
   if (starLevel >= 1760) cost *= 1.269;
-  if (starLevel >= 1810) cost *= 1.1;
-  if (starLevel >= 1860) cost *= Math.pow(1.1, Math.floor((starLevel - 1810) / 50));
+  if (starLevel >= 1810) cost *= Math.pow(1.1, Math.floor((starLevel - 1760) / 50));
 
-  return Math.floor(cost * 100 / (scrapyardMul + 100));
+  return Math.floor((cost * 100) * multipliers.achievement * multipliers.masteryBoost / ((multipliers.scrapyard + 100) * 1000));
 }

@@ -11,6 +11,7 @@ export const dataSchema = zod.object({
   stars: zod.number().min(0).int(),
   scrapyardV2: zod.number().min(0).int(),
   targetStar: zod.number().positive().int(),
+  masteryBoostLevel: zod.number().min(0).int().default(0),
   resources: zod.object({
     goldenScraps: zod.string().refine(checkResourceValue),
     magnets: zod.string().refine(checkResourceValue),
