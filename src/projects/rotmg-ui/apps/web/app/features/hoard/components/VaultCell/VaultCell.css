@@ -36,10 +36,6 @@
   box-shadow: inset 0 0 5px 3px #0003;
 }
 
-.VaultCell.used.slotted > div > div img {
-  filter: drop-shadow(0 0 1px #fd0000);
-}
-
-.VaultCell.used.enchanted > div > div img {
-  filter: drop-shadow(0 0 1px #fbff00);
+.VaultCell.used[data-enchanted="true"] img {
+  filter: drop-shadow(0 0 3px var(--tw-shadow-color));
 }

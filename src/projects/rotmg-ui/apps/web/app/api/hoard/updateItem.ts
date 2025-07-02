@@ -17,6 +17,7 @@ export const updateItem = async (options: UpdateItemOptions): Promise<void> => {
     return;
   }
 
+  const enchants = (options.enchants ?? 0) % 5;
   const slots = [...range(1, Math.max(slotsPerRow, dataItem?.sequence?.length ?? 0))];
 
   const newSlots: (ItemDataSlot | null)[] = slots.map((slot, index) => {
@@ -29,6 +30,7 @@ export const updateItem = async (options: UpdateItemOptions): Promise<void> => {
     if (dataItem.type === ItemType.Infinite && isNumber(options.count)) {
       return {
         ...currentSlot,
+        enchants,
         count: options.count,
       };
     }
@@ -40,38 +42,18 @@ export const updateItem = async (options: UpdateItemOptions): Promise<void> => {
     ) {
       console.log('count')
       return {
-        slotted: false,
-        enchanted: false,
         ...currentSlot,
+        enchants,
         count: options.count,
       };
     }
 
-    if (currentSlot && typeof options.slotted !== 'boolean' && typeof options.enchanted !== 'boolean') {
+    if (currentSlot && typeof options.enchants !== 'number') {
       return null;
     }
 
-    if (!dataItem.enchantable) {
-      return {
-        slotted: false,
-        enchanted: false,
-        count: options.count,
-      };
-    }
-
-    const defaultEnchanted = dataItem.defaultEnchanted;
-
-    const slotted = options.enchanted === true
-      ? true
-      : options.slotted ?? currentSlot?.slotted ?? true;
-    const enchanted = options.slotted === false
-      ? false
-      // ignore the "defaultEnchanted" if the user toggled the "slotted" but not "enchanted"
-      : Boolean(options.enchanted ?? currentSlot?.enchanted ?? (!options.slotted ? defaultEnchanted : false));
-
     return {
-      slotted,
-      enchanted: slotted && enchanted,
+      enchants,
       count: options.count,
     };
   });
@@ -94,6 +76,5 @@ export interface UpdateItemOptions {
   position: number;
   clientDate: string;
   count?: number;
-  slotted?: boolean;
-  enchanted?: boolean;
+  enchants?: number;
 }

@@ -39,8 +39,10 @@ export async function action({ request }: ActionFunctionArgs) {
   const position = Number(body.get('position'));
   const count = Number(body.get('count'));
   const clientDate = body.get('date')?.toString();
-  const slotted = JSON.parse(body.get('slotted')?.toString() ?? 'null');
-  const enchanted = JSON.parse(body.get('enchanted')?.toString() ?? 'null');
+  const rawEnchants = body.get('enchants');
+  const enchants = rawEnchants === null
+    ? undefined
+    : (Number(rawEnchants) || 0);
 
   if (!id || !isNumber(position) || !clientDate) {
     throw new Error('Invalid data');
@@ -50,8 +52,7 @@ export async function action({ request }: ActionFunctionArgs) {
     id,
     position,
     clientDate,
-    slotted,
-    enchanted,
+    enchants,
     count: isNumber(count) ? count : undefined,
   });
 
@@ -158,10 +159,19 @@ export default function Hoard() {
   }
 
   const handleToggle = (data: { id: string; position: number; }) => {
-    return (type: 'item' | 'slotted' | 'enchanted', bool: boolean) => {
+    return (type: 'item', bool: boolean) => {
       handler({
         ...data,
         [type]: bool,
+      });
+    }
+  }
+
+  const handleToggleEnchants = (data: { id: string; position: number; }) => {
+    return (enchants: number) => {
+      handler({
+        ...data,
+        enchants,
       });
     }
   }
@@ -202,6 +212,7 @@ export default function Hoard() {
                   item={item}
                   hoard={hoard}
                   onToggle={handleToggle}
+                  onToggleEnchant={handleToggleEnchants}
                   onCount={handleCount}
                 />
               ))}
@@ -225,7 +236,7 @@ export const TableBodyHeader = React.memo(function TableBodyHeaderMemo({ itemSec
     filledSlotCount,
     completedRowCount,
     totalEnchantableItemCount,
-    slottedItemCount,
+    divineItemCount,
     enchantedItemCount,
     totalItemCount,
     totalRowCount,
@@ -246,17 +257,17 @@ export const TableBodyHeader = React.memo(function TableBodyHeaderMemo({ itemSec
       getFilledSlots(item).length === 8
     )).length;
 
-    const totalEnchantableItemCount = itemSection.allItems.filter(item => item.enchantable).length * slotsPerRow;
-    const slottedItemCount = sum(itemSection.allItems.map(item => (
-      getFilledSlots(item).filter(slot => slot.slotted).length
+    const totalEnchantableItemCount = itemSection.allItems.filter(item => item.tier).length * slotsPerRow;
+    const divineItemCount = sum(itemSection.allItems.map(item => (
+      getFilledSlots(item).filter(slot => slot.enchants === 4).length
     )));
     const enchantedItemCount = sum(itemSection.allItems.map(item => (
-      getFilledSlots(item).filter(slot => slot.enchanted).length
+      getFilledSlots(item).filter(slot => slot.enchants > 0).length
     )));
 
     // total enchantable item count 2x for slotted and enchanted
     const total = totalItemCount + totalEnchantableItemCount * 2;
-    const progress = filledSlotCount + slottedItemCount + enchantedItemCount;
+    const progress = filledSlotCount + divineItemCount + enchantedItemCount;
     const completion = Math.min(100, progress * 100 / total);
     const isCompleted = completion === 100;
 
@@ -268,7 +279,7 @@ export const TableBodyHeader = React.memo(function TableBodyHeaderMemo({ itemSec
       filledSlotCount,
       completedRowCount,
       totalEnchantableItemCount,
-      slottedItemCount,
+      divineItemCount,
       enchantedItemCount,
       totalItemCount,
       totalRowCount,
@@ -319,8 +330,8 @@ export const TableBodyHeader = React.memo(function TableBodyHeaderMemo({ itemSec
                     {totalEnchantableItemCount > 0 && (
                       <>
                         <ProgressNumber
-                          label="Slotted Items"
-                          value={slottedItemCount}
+                          label="Divine Items"
+                          value={divineItemCount}
                           total={totalEnchantableItemCount}
                         />
 

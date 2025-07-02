@@ -7,7 +7,7 @@ import type { Hoard } from '~/api/hoard';
 import { VaultSlot } from '../VaultSlot';
 import { createHoardRowArray } from '../../utils';
 
-export const SequencialRows = ({ item, hoard, onToggle, onCount }: SequencialRowsProps) => {
+export const SequencialRows = ({ item, hoard, onToggle, onToggleEnchant, onCount }: SequencialRowsProps) => {
   const { sequence } = item;
 
   if(!sequence) {
@@ -28,6 +28,7 @@ export const SequencialRows = ({ item, hoard, onToggle, onCount }: SequencialRow
               index={(rowNumber * slotsPerRow) + index}
               hoard={hoard}
               onToggle={onToggle({ id: item.id, position: (rowNumber * slotsPerRow) + index })}
+              onToggleEnchant={onToggleEnchant({ id: item.id, position: (rowNumber * slotsPerRow) + index })}
               onCount={onCount({ id: item.id, position: (rowNumber * slotsPerRow) + index })}
             />
           ))}
@@ -40,6 +41,7 @@ export const SequencialRows = ({ item, hoard, onToggle, onCount }: SequencialRow
 export interface SequencialRowsProps {
   item: Item;
   hoard: Hoard;
-  onToggle: (data: { id: string; position: number; }) => (type: 'item' | 'slotted' | 'enchanted', bool: boolean) => void;
+  onToggle: (data: { id: string; position: number; }) => (type: 'item', bool: boolean) => void;
+  onToggleEnchant: (data: { id: string; position: number; }) => (enchants: number) => void;
   onCount: (data: { id: string; position: number; }) => (count: number) => void;
 }

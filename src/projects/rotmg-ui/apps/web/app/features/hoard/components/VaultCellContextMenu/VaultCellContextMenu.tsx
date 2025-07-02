@@ -1,10 +1,8 @@
 import { cloneElement, useState } from 'react';
 import { Tooltip, ClickAwayListener, Backdrop, Divider } from '@mui/material';
 
-import { LabelledSwitch } from '~/components/LabelledSwitch';
-
 export const VaultCellContextMenu = (props: VaultCellContextMenuProps) => {
-  const { children, disabled, slotted, enchanted, onToggle, name } = props;
+  const { children, disabled, name } = props;
   const [activeTooltip, setActiveTooltip] = useState(false);
 
   const handleContextMenu = (event: React.MouseEvent) => {
@@ -33,17 +31,6 @@ export const VaultCellContextMenu = (props: VaultCellContextMenuProps) => {
             <div className="flex flex-col">
               <span className="text-lg">{name}</span>
               <Divider />
-
-              <LabelledSwitch
-                label="Slotted"
-                checked={Boolean(slotted)}
-                onChange={() => onToggle('slotted', !slotted)}
-              />
-              <LabelledSwitch
-                label="Enchanted"
-                checked={Boolean(enchanted)}
-                onChange={() => onToggle('enchanted', !enchanted)}
-              />
             </div>
           </ClickAwayListener>
         }
@@ -57,10 +44,7 @@ export const VaultCellContextMenu = (props: VaultCellContextMenuProps) => {
 }
 
 export interface VaultCellContextMenuProps {
-  onToggle: (type: 'item' | 'slotted' | 'enchanted', bool: boolean) => void;
   children: React.ReactElement;
-  slotted?: boolean;
-  enchanted?: boolean;
   name?: string;
   disabled?: boolean;
 }
